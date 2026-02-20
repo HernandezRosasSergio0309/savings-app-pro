@@ -1,31 +1,10 @@
-/
-├──
-.gitignore # Ignorar archivos del sistema/temporales
-├── README.md # Portada del proyecto (Team names, Project desc)
-├── ROLES.md # El Team Charter (ver punto 3)
-├── /docs # Documentation
-│ ├── dictionary.md # Data Dictionary (English)
-│ └── erd
-_
-diagram.mmd # Entity-Relationship Diagram (Mermaid code)
-├── /src # Source Code
-│ ├── 01
-_
-schema.sql # DDL: CREATE TABLES, Constraints
-│ ├── 02
-_
-seed.sql # DML: INSERT initial mock data
-│ └── 03
-_
-users.sql # DCL: CREATE USER, GRANT permissions
-├── /queries # Consultas requeridas
-│ ├── report
-_
-sales.sql # Example complex query
-│ └── analysis.sql # Aggregations & Joins
-└── /tests # Quality Assurance
-├── bug_
-report.md # Registro de errores encontrados
-└── test
-_
-cases.sql # Scripts para intentar "romper" la BD
+
+| roles                                 | nombre                              |
+| ------------------------------------- | ----------------------------------- |
+| The Analyst & Designer (Architect)    | Hernández Rosas Sergio              |
+| The SQL Developer (Builder)           | Bañuelos García Said                |
+| The Database Administrator (Guardian) | Santos Hernández Diego Manuel       |
+| The Query Master (Manipulator)        | Venegas Rojas Jeremiah Domingo      |
+| The SQL Tester (QA / Breaker)         | Hernández Vera Ricardo              |
+
+El propósito de este programa es diseñar, crear y administrar una de gestión de membresías que permita clasificar a los usuarios según sus preferencias, necesidades y patrones de uso. A través de una estructura organizada y bien definida, el sistema busca optimizar el almacenamiento de información, facilitar la toma de decisiones y garantizar una administración eficiente y escalable de las diferentes categorías de membresía.
