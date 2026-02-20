@@ -7,4 +7,4 @@
 | The Query Master (Manipulator)        | Venegas Rojas Jeremiah Domingo      |
 | The SQL Tester (QA / Breaker)         | Hernández Vera Ricardo              |
 
-El propósito de este programa es diseñar, crear y administrar una de gestión de membresías que permita clasificar a los usuarios según sus preferencias, necesidades y patrones de uso. A través de una estructura organizada y bien definida, el sistema busca optimizar el almacenamiento de información, facilitar la toma de decisiones y garantizar una administración eficiente y escalable de las diferentes categorías de membresía.
+El propósito de este programa es diseñar, crear y administrar un sistema de gestión de ahorro personal que permita a los usuarios organizar su capital mediante objetivos específicos y cuentas de ahorro libre. A través de una estructura relacional normalizada, el sistema busca optimizar el seguimiento de transacciones, automatizar el cálculo de aportes según frecuencias personalizadas y garantizar un historial íntegro que facilite el monitoreo del progreso financiero de manera eficiente y escalable.
