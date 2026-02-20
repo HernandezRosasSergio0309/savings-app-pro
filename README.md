@@ -1,5 +1,5 @@
 
-| roles                                 | nombre                              |
+| Roles                                 | Nombre                              |
 | ------------------------------------- | ----------------------------------- |
 | The Analyst & Designer (Architect)    | Hernández Rosas Sergio              |
 | The SQL Developer (Builder)           | Bañuelos García Said                |
