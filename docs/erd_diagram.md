@@ -1,33 +1,33 @@
 erDiagram
-    direction LR
+    USERS ||--o{ SAVINGS_GOALS : "manages"
+    FREQUENCIES ||--o{ SAVINGS_GOALS : "defines"
+    SAVINGS_GOALS ||--o{ GOAL_TRANSACTIONS : "records"
 
-    USER ||--o{ GOAL : tiene
-    USER ||--o{ SAVING_WITHOUT_GOAL : tiene
-
-    USER {
+    USERS {
         int user_id PK
-        string nickname
-        string pass
+        varchar username
+        varchar password
     }
 
-    GOAL {
+    FREQUENCIES {
+        tinyint frequency_id PK
+        varchar frequency_name
+    }
+
+    SAVINGS_GOALS {
         int goal_id PK
+        int user_id FK
+        tinyint frequency_id FK
+        varchar goal_name
+        decimal target_amount
+        decimal periodic_amount
         date start_date
         date end_date
-        string savings_frequency
-        float periodic_amount
-        float goal_amount
-        int goal_transactions
-        float transaction_amount
-        date transaction_date
-        string goal_name
     }
 
-    SAVING_WITHOUT_GOAL {
-        int savings_id PK
-        float savings_amount
-        int savings_transactions
-        float transaction_amount
-        date transaction_date
-        string savings_name
+    GOAL_TRANSACTIONS {
+        int transaction_id PK
+        int goal_id FK
+        decimal amount
+        timestamp transaction_date
     }
