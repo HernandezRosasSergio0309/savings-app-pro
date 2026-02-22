@@ -1,4 +1,3 @@
-
 | Roles                                 | Nombre                              |
 | ------------------------------------- | ----------------------------------- |
 | The Analyst & Designer (Architect)    | Hernández Rosas Sergio              |
