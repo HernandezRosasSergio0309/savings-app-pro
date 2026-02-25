@@ -1,13 +1,18 @@
--- Savings App Pro - User Access & Security
--- Purpose: Create a dedicated application user and grant permissions
+-- Savings App Pro - Security Configuration
+-- Project: Database Design for Savings Management
+-- Author: Santos Hernández Diego Manuel (The Guardian)
+-- Version: 1.0
 
--- 1. Create the application user
--- We use 'localhost' assuming the App and DB are on the same server
-CREATE USER IF NOT EXISTS 'savings_app_user'@'localhost' IDENTIFIED BY 'Cbtis47_2026';
+USE savings_app_db;
 
--- 2. Grant permissions on the specific database
--- This follows the Principle of Least Privilege (limiting access to one DB)
-GRANT ALL PRIVILEGES ON savings_app_db.* TO 'savings_app_user'@'localhost';
+-- 1. Create a dedicated application user
+-- We use 'localhost' to ensure the user can only connect from this machine
+CREATE USER IF NOT EXISTS 'savings_app_user'@'localhost' 
+IDENTIFIED BY 'Cbtis47_2026';
+
+-- 2. Grant specific privileges
+-- The app needs to read, insert, and update, but NOT drop tables
+GRANT SELECT, INSERT, UPDATE, DELETE ON savings_app_db.* TO 'savings_app_user'@'localhost';
 
 -- 3. Apply changes
 FLUSH PRIVILEGES;
