@@ -1,3 +1,4 @@
+~~~mermaid
 erDiagram
     USERS ||--o{ SAVINGS_GOALS : "manages"
     FREQUENCIES ||--o{ SAVINGS_GOALS : "defines"
@@ -31,3 +32,4 @@ erDiagram
         decimal amount
         timestamp transaction_date
     }
+~~~
