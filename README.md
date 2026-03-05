@@ -21,7 +21,7 @@ The purpose of this program is to design, create, and manage a personal savings 
 | :--- | :--- |
 | docs/ | ERD Diagram and Data Dictionary. |
 | src/01_schema.sql | Core database structure (Tables, PKs, FKs). |
-| src/02_insert_data.sql | Seed data for testing purposes. |
+| src/02_seed.sql | Seed data for testing purposes. |
 | src/03_users.sql | Security configuration and user permissions. |
 | queries/ | SQL scripts for business reports and analysis. |
 | tests/ | QA test cases and bug reports. |
@@ -52,7 +52,7 @@ El propósito de este programa es diseñar, crear y administrar un sistema de ge
 | :--- | :--- |
 | docs/ | Diagrama Entidad-Relación y Diccionario de Datos. |
 | src/01_schema.sql | Estructura base (Tablas y Llaves). |
-| src/02_insert_data.sql | Datos de prueba iniciales. |
+| src/02_seed.sql | Datos de prueba iniciales. |
 | src/03_users.sql | Configuración de seguridad y permisos. |
 | queries/ | Reportes de análisis y progreso. |
 | tests/ | Casos de prueba y reportes de errores. |
