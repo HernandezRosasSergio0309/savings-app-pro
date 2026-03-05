@@ -28,7 +28,7 @@ The purpose of this program is to design, create, and manage a personal savings 
 
 ### Execution Order
 1. src/01_schema.sql - Database Schema Creation
-2. src/02_insert_data.sql - Seed Data Population
+2. src/02_seed.sql - Seed Data Population
 3. src/03_users.sql - Security and User Access Configuration
 
 ---
@@ -59,7 +59,7 @@ El propósito de este programa es diseñar, crear y administrar un sistema de ge
 
 ### Orden de Ejecución
 1. src/01_schema.sql - Creación del Esquema de Base de Datos
-2. src/02_insert_data.sql - Carga de Datos Semilla
+2. src/02_seed.sql - Carga de Datos Semilla
 3. src/03_users.sql - Configuración de Seguridad y Acceso de Usuarios
 
 ---
