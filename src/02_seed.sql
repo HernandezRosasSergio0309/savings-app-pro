@@ -1,6 +1,6 @@
 -- Savings App Pro - Seed Data
 -- Project: Database Design for Savings Management
--- Author: Hernández Rosas Sergio
+-- Author: Venegas Rojas Jeremiah
 -- Version: 1.1
 
 USE savings_app_db;
