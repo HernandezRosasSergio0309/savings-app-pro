@@ -50,7 +50,7 @@ El propósito de este programa es diseñar, crear y administrar un sistema de ge
 ### Estructura del Proyecto
 | Carpeta | Descripción |
 | :--- | :--- |
-| docs/ | Diagrama Entidad-Relación y Diccionario de Datos. |
+| docs/ | Diagrama Entidad-Relación, Diccionario de Datos y Reporte de Nomarlización. |
 | src/01_schema.sql | Estructura base (Tablas y Llaves). |
 | src/02_seed.sql | Datos de prueba iniciales. |
 | src/03_users.sql | Configuración de seguridad y permisos. |
