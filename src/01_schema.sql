@@ -1,6 +1,5 @@
 -- Savings App Pro - Database Schema
 -- Project: Database Design for Savings Management
--- Author: Hernández Rosas Sergio
 -- Version: 1.2
 
 -- 0. Environment Setup
