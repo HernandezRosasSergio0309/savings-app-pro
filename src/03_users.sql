@@ -1,6 +1,5 @@
 -- Savings App Pro - Security Configuration
 -- Project: Database Design for Savings Management
--- Author: Hernández Rosas Sergio
 -- Version: 1.0
 
 USE savings_app_db;
