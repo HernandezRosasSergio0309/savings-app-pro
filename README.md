@@ -19,7 +19,7 @@ The purpose of this program is to design, create, and manage a personal savings 
 ### Project Structure
 | Folder | Description |
 | :--- | :--- |
-| docs/ | ERD Diagram and Data Dictionary. |
+| docs/ | ERD Diagram, Data Dictionary and Normalization Report. |
 | src/01_schema.sql | Core database structure (Tables, PKs, FKs). |
 | src/02_seed.sql | Seed data for testing purposes. |
 | src/03_users.sql | Security configuration and user permissions. |
