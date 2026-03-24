@@ -32,6 +32,7 @@ erDiagram
         int transaction_id PK
         int goal_id FK
         decimal amount
+        enum transaction_type
         timestamp transaction_date
     }
 ~~~
