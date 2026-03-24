@@ -10,6 +10,7 @@ USE savings_app_db;
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT,
     username VARCHAR(60) NOT NULL UNIQUE,
+    email VARCHAR(60) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (user_id)
 );
