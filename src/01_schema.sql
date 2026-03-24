@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS frequencies (
 CREATE TABLE IF NOT EXISTS savings_goals (
     goal_id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
-    frequency_id TINYINT NOT NULL,
+    frequency_id TINYINT NULLABLE,
     goal_name VARCHAR(100) NOT NULL,
     -- target_amount is now NULLABLE for general savings
     target_amount DECIMAL(10,2) CHECK (target_amount > 0), 
