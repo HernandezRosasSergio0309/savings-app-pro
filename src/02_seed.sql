@@ -28,8 +28,9 @@ INSERT INTO savings_goals (user_id, frequency_id, goal_name, target_amount, peri
 
 -- 4. Populating Transactions
 -- Deposits to General Savings (Goal 1) and Laptop (Goal 3)
-INSERT INTO goal_transactions (goal_id, amount) VALUES 
-(1, 200.00), -- Deposit to Piggy Bank
-(3, 1250.00), -- Deposit to Laptop Goal
-(3, 1250.00),
-(4, 500.00);
+INSERT INTO goal_transactions (goal_id, amount, transaction_type) VALUES 
+(1, 200.00, 'deposit'), -- Initial deposit to the pot
+(3, 1250.00, 'deposit'), -- Fisrt payment of the laptop
+(3, 1250.00, 'deposit'), -- Second payment of the laptop
+(1, 50.00, 'withdrawal'), -- The user withdrew money from his cash
+(4, 500.00, 'deposit'); -- Deposit for the trip
