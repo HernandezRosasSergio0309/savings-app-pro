@@ -9,6 +9,7 @@ This document provides a detailed description of the database schema, including 
 | :--- | :--- | :--- | :--- |
 | `user_id` | `INT` | `PRIMARY KEY, AUTO_INCREMENT` | Unique internal identifier for the user. |
 | `username` | `VARCHAR(60)` | `NOT NULL, UNIQUE` | Unique name used for account identification and login. |
+| `email` | `VARCHAR(60)` | `NOT NULL, UNIQUE` | Unique email used for account identification and login. |
 | `password` | `VARCHAR(255)` | `NOT NULL` | The hashed security key for user authentication. |
 
 ## 2. Table: frequencies
