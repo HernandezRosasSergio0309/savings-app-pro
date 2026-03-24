@@ -7,6 +7,7 @@ erDiagram
     USERS {
         int user_id PK
         varchar username
+        varchar email
         varchar password
     }
 
