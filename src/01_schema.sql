@@ -26,11 +26,11 @@ CREATE TABLE IF NOT EXISTS frequencies (
 CREATE TABLE IF NOT EXISTS savings_goals (
     goal_id INT AUTO_INCREMENT,
     user_id INT NOT NULL,
-    frequency_id TINYINT NULLABLE,
+    frequency_id TINYINT NULL,
     goal_name VARCHAR(100) NOT NULL,
     -- target_amount is now NULLABLE for general savings
-    target_amount DECIMAL(10,2) CHECK (target_amount > 0), 
-    periodic_amount DECIMAL(10,2) NOT NULL CHECK (periodic_amount > 0),
+    target_amount DECIMAL(15,2) CHECK (target_amount > 0), 
+    periodic_amount DECIMAL(15,2) NOT NULL CHECK (periodic_amount > 0),
     start_date DATE NOT NULL,
     -- end_date is now NULLABLE for general savings
     end_date DATE, 
@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS savings_goals (
 CREATE TABLE IF NOT EXISTS goal_transactions (
     transaction_id INT AUTO_INCREMENT,
     goal_id INT NOT NULL,
-    amount DECIMAL(10,2) NOT NULL CHECK (amount > 0),
+    amount DECIMAL(15,2) NOT NULL CHECK (amount > 0),
+    transaction_type ENUM('deposit', 'withdrawal') NOT NULL,
     transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (transaction_id),
     CONSTRAINT fk_transaction_goal FOREIGN KEY (goal_id) 
