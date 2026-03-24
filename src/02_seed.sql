@@ -12,10 +12,10 @@ INSERT INTO frequencies (frequency_id, frequency_name) VALUES
 (4, 'Monthly');
 
 -- 2. Populating Users
-INSERT INTO users (username, password) VALUES 
-('sergio_admin', 'admin123'),
-('said_dev', 'dev456'),
-('diego_guardian', 'pass789');
+INSERT INTO users (username, email, password) VALUES 
+('sergio_admin', 'sergiohr@gmail.com', 'admin123'),
+('said_dev', 'saidev@gmail.com', 'dev456'),
+('diego_guardian', 'diegog@gmail.com', 'pass789');
 
 -- 3. Populating Savings Goals
 -- Note: Goal 1 & 2 are system "Piggy Banks" (No target, no end date)
