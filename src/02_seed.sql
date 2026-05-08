@@ -1,36 +1,34 @@
 -- Savings App Pro - Seed Data
 -- Project: Database Design for Savings Management
--- Version: 2.0
+-- Version: 2.1
 
-USE savings_app_db;
+-- 1. Permitimos valores NULL en target_amount y end_date para las alcancías libres
+ALTER TABLE public.savings_goals ALTER COLUMN target_amount DROP NOT NULL;
+ALTER TABLE public.savings_goals ALTER COLUMN end_date DROP NOT NULL;
 
--- 1. Populating Frequencies
-INSERT INTO frequencies (frequency_id, frequency_name) VALUES 
+-- 2. Limpiamos TODAS las tablas en orden para evitar conflictos de llaves foráneas
+TRUNCATE TABLE public.goal_transactions RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.savings_goals RESTART IDENTITY CASCADE;
+TRUNCATE TABLE public.frequencies RESTART IDENTITY CASCADE;
+
+-- 3. Insertamos las Frecuencias (Tabla Padre)
+INSERT INTO public.frequencies (frequency_id, frequency_name) VALUES 
 (1, 'Daily'),
 (2, 'Weekly'),
 (3, 'Biweekly'),
 (4, 'Monthly');
 
--- 2. Populating Users
-INSERT INTO users (username, email, password) VALUES 
-('sergio_admin', 'sergiohr@gmail.com', 'admin123'),
-('said_dev', 'saidev@gmail.com', 'dev456'),
-('diego_guardian', 'diegog@gmail.com', 'pass789');
+-- 4. Insertamos las Metas de Ahorro (Tabla Hija de Frecuencias y Profiles)
+INSERT INTO public.savings_goals (goal_id, user_id, frequency_id, goal_name, target_amount, periodic_amount, start_date, end_date, is_system_goal) VALUES 
+(1, '1c71c0e3-f56c-4ee1-a450-82cb7c7177ea', 4, 'General Savings', NULL, 100.00, '2026-01-01', NULL, TRUE),
+(2, '1c71c0e3-f56c-4ee1-a450-82cb7c7177ea', 4, 'My Piggy Bank', NULL, 50.00, '2026-01-01', NULL, TRUE),
+(3, '1c71c0e3-f56c-4ee1-a450-82cb7c7177ea', 4, 'New Laptop', 15000.00, 1250.00, '2026-01-01', '2026-12-31', FALSE),
+(4, '1c71c0e3-f56c-4ee1-a450-82cb7c7177ea', 2, 'Summer Trip', 5000.00, 500.00, '2026-03-01', '2026-06-01', FALSE);
 
--- 3. Populating Savings Goals
--- Note: Goal 1 & 2 are system "Piggy Banks" (No target, no end date)
--- Note: Goal 3 & 4 are specific user goals
-INSERT INTO savings_goals (user_id, frequency_id, goal_name, target_amount, periodic_amount, start_date, end_date, is_system_goal) VALUES 
-(1, 4, 'General Savings', NULL, 100.00, '2026-01-01', NULL, TRUE),
-(2, 4, 'My Piggy Bank', NULL, 50.00, '2026-01-01', NULL, TRUE),
-(1, 4, 'New Laptop', 15000.00, 1250.00, '2026-01-01', '2026-12-31', FALSE),
-(2, 2, 'Summer Trip', 5000.00, 500.00, '2026-03-01', '2026-06-01', FALSE);
-
--- 4. Populating Transactions
--- Deposits to General Savings (Goal 1) and Laptop (Goal 3)
-INSERT INTO goal_transactions (goal_id, amount, transaction_type) VALUES 
-(1, 200.00, 'deposit'), -- Initial deposit to the pot
-(3, 1250.00, 'deposit'), -- Fisrt payment of the laptop
-(3, 1250.00, 'deposit'), -- Second payment of the laptop
-(1, 50.00, 'withdrawal'), -- The user withdrew money from his cash
-(4, 500.00, 'deposit'); -- Deposit for the trip
+-- 5. Insertamos las Transacciones (Tabla Hija de Savings Goals)
+INSERT INTO public.goal_transactions (goal_id, amount, transaction_type) VALUES 
+(1, 200.00, 'deposito'),
+(3, 1250.00, 'deposito'), 
+(3, 1250.00, 'deposito'), 
+(1, 50.00, 'retiro'), 
+(4, 500.00, 'deposito');
