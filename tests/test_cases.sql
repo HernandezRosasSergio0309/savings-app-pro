@@ -6,7 +6,8 @@ USE savings_app_db;
 -- [TEST 01] Duplicate User Verification
 -- Expected Result: ERROR (Duplicate entry for 'username')
 -- Description: Testing if UNIQUE constraint prevents duplicate usernames.
-INSERT INTO users (username, password) VALUES ('estudiante_cbtis', 'new_pass_123');
+INSERT INTO public.profiles (id, username)
+VALUES ('1c71c0e3-f56c-4ee1-a450-82cb7c7177ea', 'imnotserge');
 
 
 -- [TEST 02] Referential Integrity: Frequencies
