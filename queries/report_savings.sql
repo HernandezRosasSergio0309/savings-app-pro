@@ -1,13 +1,9 @@
 -- Report: Detailed list of user goals
 -- This joins Users, Goals, and Frequencies
 
-SELECT 
-    u.username AS 'User',
-    sg.goal_name AS 'Goal',
-    sg.target_amount AS 'Target',
-    f.frequency_name AS 'Save Interval',
-    sg.start_date AS 'Starts',
-    sg.end_date AS 'Deadline'
-FROM users u
-INNER JOIN savings_goals sg ON u.user_id = sg.user_id
-INNER JOIN frequencies f ON sg.frequency_id = f.frequency_id;
+ALTER TABLE public.goal_transactions
+DROP CONSTRAINT IF EXISTS goal_transactions_goal_id_fkey,
+ADD CONSTRAINT goal_transactions_goal_id_fkey
+  FOREIGN KEY (goal_id)
+  REFERENCES public.savings_goals(goal_id)
+  ON DELETE CASCADE;
