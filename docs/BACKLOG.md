@@ -1,7 +1,4 @@
 # Product Backlog: Galaxy Savings
-
-A continuación, el artefacto consolidado en formato Markdown, estructurado con casillas de verificación e indicadores de estado, ideal para gestionar el progreso del proyecto.
-
 ---
 
 ## Épica 1: Fundación Arquitectónica e Infraestructura
