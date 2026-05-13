@@ -143,16 +143,15 @@ El proyecto implementa Clean Architecture y el patrón MVVM para separar la lóg
 **Estructura del proyecto**
 
 savings-app-pro/
-├── docs/                 # ERD, Backlog, Normalization Report, Use Cases
+├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
 ├── lib/                  # Flutter Application Source Code
-│   ├── core/             # Config, Constants, Localization, Theme, Utils
-│   ├── data/             # Models (DTOs), Repositories Implementation, Sources
+│   ├── core/             # Routing, Constants, Localization, Themes
+│   ├── data/             # Models (DTOs), Repositories, Data Sources
 │   ├── domain/           # Pure Entities, Repository Interfaces, Use Cases
-│   └── presentation/     # Screens, ViewModels (MVVM), Shared Widgets
-├── queries/              # Business intelligence and analysis SQL scripts
-├── src/                  # Core database DDL/DML scripts (Supabase/PostgreSQL)
-├── tests/                # QA bug reports and SQL test cases
-└── pubspec.yaml          # Project dependencies and configuration
+│   └── presentation/     # Screens, Widgets, ViewModels (MVVM)
+├── queries/              # Business intelligence SQL scripts
+├── src/                  # Core database DDL and DML scripts
+└── tests/                # QA bug reports and test cases
 
 **Equipo y autores**
 
