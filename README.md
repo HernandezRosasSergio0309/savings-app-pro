@@ -37,15 +37,15 @@ Follow these instructions to set up a local copy of the project for development.
 **Installation:**
 
 1. Clone the repository:
-
+```bash
 git clone [https://github.com/HernandezRosasSergio0309/savings-app-pro.git](https://github.com/HernandezRosasSergio0309/savings-app-pro.git)
 
 2. Navigate to the project directory:
-
+```bash
 cd savings-app-pro
 
 3. Install software dependencies:
-
+```bash
 flutter pub get
 
 4. Set up the Database (Supabase):
