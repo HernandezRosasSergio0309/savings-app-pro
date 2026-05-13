@@ -93,6 +93,7 @@ savings-app-pro/
 | The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
 | The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
 | The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
+```
 
 ---
 
@@ -162,3 +163,4 @@ savings-app-pro/
 | The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
 | The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
 | The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
+```
