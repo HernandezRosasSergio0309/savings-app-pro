@@ -1,65 +1,165 @@
-# Savings App Pro - Database System
+# Galaxy Savings
+
+![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-47C28B?logo=supabase)
+![Riverpod](https://img.shields.io/badge/State_Management-Riverpod-00A8E1)
+![Architecture](https://img.shields.io/badge/Architecture-MVVM_%2B_Clean-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+> [!NOTE]
+> **Bilingual Repository:** Scroll down for the Spanish version. / Desplázate hacia abajo para la versión en español.
 
 ---
 
 ## [English Version]
 
-### Team Roles
-| Roles | Name |
-| :--- | :--- |
-| The Analyst & Designer (Architect) | Hernández Rosas Sergio |
-| The SQL Developer (Builder) | Bañuelos García Said |
-| The Database Administrator (Guardian) | Santos Hernández Diego Manuel |
-| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo |
-| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo |
+A comprehensive multi-platform mobile application built with Flutter that empowers users to seamlessly manage their finances through target-based goals and free-form saving accounts. 
 
-### Project Purpose
-The purpose of this program is to design, create, and manage a personal savings management system that allows users to organize their capital through specific objectives and free savings accounts. Through a normalized relational structure, the system seeks to optimize transaction tracking, automate the calculation of contributions based on customized frequencies, and guarantee an integral history that facilitates the monitoring of financial progress in an efficient and scalable manner.
-
-### Project Structure
-| Folder | Description |
-| :--- | :--- |
-| docs/ | ERD Diagram, Data Dictionary and Normalization Report. |
-| src/01_schema.sql | Core database structure (Tables, PKs, FKs). |
-| src/02_seed.sql | Seed data for testing purposes. |
-| src/03_users.sql | Security configuration and user permissions. |
-| queries/ | SQL scripts for business reports and analysis. |
-| tests/ | QA test cases and bug reports. |
-
-### Execution Order
-1. src/01_schema.sql - Database Schema Creation
-2. src/02_seed.sql - Seed Data Population
-3. src/03_users.sql - Security and User Access Configuration
+### Table of Contents
+* [Getting Started](#-getting-started)
+* [Architecture & Tech Stack](#-architecture--tech-stack)
+* [Design System](#-design-system)
+* [Project Structure](#-project-structure)
+* [Team & Authors](#-team--authors)
 
 ---
 
-## [Versión en Español] 
+### Getting Started
 
-### Roles del Equipo
-| Roles | Nombre |
-| :--- | :--- |
-| The Analyst & Designer (Architect) | Hernández Rosas Sergio |
-| The SQL Developer (Builder) | Bañuelos García Said |
-| The Database Administrator (Guardian) | Santos Hernández Diego Manuel |
-| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo |
-| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo |
+Follow these instructions to set up a local copy of the project for development.
 
-### Propósito del Proyecto
-El propósito de este programa es diseñar, crear y administrar un sistema de gestión de ahorro personal que permita a los usuarios organizar su capital mediante objetivos específicos y cuentas de ahorro libre. A través de una estructura relacional normalizada, el sistema busca optimizar el seguimiento de transacciones, automatizar el cálculo de aportes según frecuencias personalizadas y garantizar un historial íntegro que facilite el monitoreo del progreso financiero de manera eficiente y escalable.
+**Prerequisites:**
 
-### Estructura del Proyecto
-| Carpeta | Descripción |
-| :--- | :--- |
-| docs/ | Diagrama Entidad-Relación, Diccionario de Datos y Reporte de Normalización. |
-| src/01_schema.sql | Estructura base (Tablas y Llaves). |
-| src/02_seed.sql | Datos de prueba iniciales. |
-| src/03_users.sql | Configuración de seguridad y permisos. |
-| queries/ | Reportes de análisis y progreso. |
-| tests/ | Casos de prueba y reportes de errores. |
+* [Flutter SDK](https://docs.flutter.dev/get-started/install)
+* Git
+* A Supabase project instance
 
-### Orden de Ejecución
-1. src/01_schema.sql - Creación del Esquema de Base de Datos
-2. src/02_seed.sql - Carga de Datos Semilla
-3. src/03_users.sql - Configuración de Seguridad y Acceso de Usuarios
+**Installation:**
+
+1. Clone the repository:
+```bash
+git clone [https://github.com/HernandezRosasSergio0309/savings-app-pro.git](https://github.com/HernandezRosasSergio0309/savings-app-pro.git)
+
+2. Navigate to the project directory:
+```bash
+cd savings-app-pro
+
+3. Install software dependencies:
+```bash
+flutter pub get
+
+4. Set up the Database (Supabase):
+```bash
+Execute the SQL scripts located in the src/ folder in the following order inside your Supabase SQL Editor:
+* src/01_schema.sql - Core database structure.
+* src/02_seed.sql - Seed data for testing.
+* src/03_users.sql - Security policies (RLS) and triggers.
+
+**Architecture & Tech Stack**
+
+This project strictly follows the Clean Architecture principles combined with the MVVM (Model-View-ViewModel) design pattern to ensure maximum decoupling, scalability, and testability.
+* Frontend: Flutter (Dart)
+* Backend & Database: Supabase (PostgreSQL, Auth)
+* State Management: Riverpod
+* Routing: GoRouter
+* Naming Convention: snake_case for files/folders, CamelCase for classes, and camelCase for variables.
+* Internationalization (i18n): Native support configured via .arb files.
+
+**Design System**
+
+The application is highly adaptive, strictly adhering to platform-specific guidelines:
+* Android (Material Design): Base reference frames built on "Android Compact" (412x917 px). Utilizes standard Material elevation (Y: 4, Blur: 8, 10% opacity) and 12px border radius.
+* iOS (Cupertino Glassmorphism): Base reference frames built on "iPhone 17 Pro" (402x874px). Implements "Liquid Glass" effects utilizing precise refraction, depth (50%), and frost (3%) properties over a dark slate base (#94A3B8) with 20% opacity.
+
+**Project Structure**
+
+savings-app-pro/
+├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
+├── lib/                  # Flutter Application Source Code
+│   ├── core/             # Routing, Constants, Localization, Themes
+│   ├── data/             # Models (DTOs), Repositories, Data Sources
+│   ├── domain/           # Pure Entities, Repository Interfaces, Use Cases
+│   └── presentation/     # Screens, Widgets, ViewModels (MVVM)
+├── queries/              # Business intelligence SQL scripts
+├── src/                  # Core database DDL and DML scripts
+└── tests/                # QA bug reports and test cases
+
+**Team & Authors**
+
+| Role | Name | Responsibilities |
+| :--- | :--- | :--- |
+| The Analyst & Designer (Architect) | Hernández Rosas Sergio | Visual model, Normalization (3NF), Flutter core setup & UI/UX. |
+| The SQL Developer (Builder) | Bañuelos García Said | DDL code, accurate data types, Dart Entities & DTOs. |
+| The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
+| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
+| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
 
 ---
+
+### [Versión en Español]
+
+Aplicación móvil multiplataforma desarrollada en Flutter, diseñada para revolucionar la gestión de ahorros personales permitiendo administrar finanzas mediante metas a plazo fijo y cuentas de ahorro libre.
+
+### Inicio Rápido
+
+Sigue estas instrucciones para configurar una copia local del proyecto.
+
+**Prerrequisitos:**
+
+* Flutter SDK
+* Git
+* Un proyecto configurado en Supabase
+
+**Instalación:**
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/HernandezRosasSergio0309/savings-app-pro.git
+
+2. Entra al directorio:
+```bash
+cd savings-app-pro
+
+3. Instala las dependencias:
+```bash
+flutter pub get
+
+4. Configura la base de datos ejecutando los scripts de la carpeta src/ en el SQL Editor de Supabase (01_schema.sql, 02_seed.sql, 03_users.sql).
+
+**Arquitectura y Stack**
+
+El proyecto implementa Clean Architecture y el patrón MVVM para separar la lógica de negocio de la interfaz.
+
+* Frontend: Flutter & Dart
+* Backend: Supabase (PostgreSQL)
+* Gestor de Estado: Riverpod
+* Nomenclatura: snake_case para archivos y documentación bilingüe.
+
+**Sistema de Diseño**
+
+* Android: Material Design basado en el frame "Android compacto" (412x917 px).
+* iOS: Cupertino Glassmorphism (Liquid Glass) adaptado para "iPhone 17 Pro".
+
+**Estructura del proyecto**
+
+savings-app-pro/
+├── docs/                 # ERD, Backlog, Normalization Report, Use Cases
+├── lib/                  # Flutter Application Source Code
+│   ├── core/             # Config, Constants, Localization, Theme, Utils
+│   ├── data/             # Models (DTOs), Repositories Implementation, Sources
+│   ├── domain/           # Pure Entities, Repository Interfaces, Use Cases
+│   └── presentation/     # Screens, ViewModels (MVVM), Shared Widgets
+├── queries/              # Business intelligence and analysis SQL scripts
+├── src/                  # Core database DDL/DML scripts (Supabase/PostgreSQL)
+├── tests/                # QA bug reports and SQL test cases
+└── pubspec.yaml          # Project dependencies and configuration
+
+**Equipo y autores**
+
+| Rol | Nombre | Responsabilidades |
+| :--- | :--- | :--- |
+| The Analyst & Designer (Architect) | Hernández Rosas Sergio | Visual model, Normalization (3NF), Flutter core setup & UI/UX. |
+| The SQL Developer (Builder) | Bañuelos García Said | DDL code, accurate data types, Dart Entities & DTOs. |
+| The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
+| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
+| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
