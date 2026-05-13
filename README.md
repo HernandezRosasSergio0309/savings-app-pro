@@ -111,6 +111,7 @@ Sigue estas instrucciones para configurar una copia local del proyecto.
 * [Project Structure](#-project-structure)
 * [Team & Authors](#-team--authors)
 
+---
 
 **Prerrequisitos:**
 
