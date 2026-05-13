@@ -39,22 +39,22 @@ Follow these instructions to set up a local copy of the project for development.
 1. Clone the repository:
 ```bash
 git clone [https://github.com/HernandezRosasSergio0309/savings-app-pro.git](https://github.com/HernandezRosasSergio0309/savings-app-pro.git)
-
+```
 2. Navigate to the project directory:
 ```bash
 cd savings-app-pro
-
+```
 3. Install software dependencies:
 ```bash
 flutter pub get
-
+```
 4. Set up the Database (Supabase):
 ```bash
 Execute the SQL scripts located in the src/ folder in the following order inside your Supabase SQL Editor:
-* src/01_schema.sql - Core database structure.
-* src/02_seed.sql - Seed data for testing.
-* src/03_users.sql - Security policies (RLS) and triggers.
-
+src/01_schema.sql - Core database structure.
+src/02_seed.sql - Seed data for testing.
+src/03_users.sql - Security policies (RLS) and triggers.
+```
 **Architecture & Tech Stack**
 
 This project strictly follows the Clean Architecture principles combined with the MVVM (Model-View-ViewModel) design pattern to ensure maximum decoupling, scalability, and testability.
@@ -72,7 +72,7 @@ The application is highly adaptive, strictly adhering to platform-specific guide
 * iOS (Cupertino Glassmorphism): Base reference frames built on "iPhone 17 Pro" (402x874px). Implements "Liquid Glass" effects utilizing precise refraction, depth (50%), and frost (3%) properties over a dark slate base (#94A3B8) with 20% opacity.
 
 **Project Structure**
-
+```bash
 savings-app-pro/
 ├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
 ├── lib/                  # Flutter Application Source Code
@@ -83,7 +83,7 @@ savings-app-pro/
 ├── queries/              # Business intelligence SQL scripts
 ├── src/                  # Core database DDL and DML scripts
 └── tests/                # QA bug reports and test cases
-
+```
 **Team & Authors**
 
 | Role | Name | Responsibilities |
@@ -124,17 +124,21 @@ Sigue estas instrucciones para configurar una copia local del proyecto.
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/HernandezRosasSergio0309/savings-app-pro.git
-
+```
 2. Entra al directorio:
 ```bash
 cd savings-app-pro
-
+```
 3. Instala las dependencias:
 ```bash
 flutter pub get
-
-4. Configura la base de datos ejecutando los scripts de la carpeta src/ en el SQL Editor de Supabase (01_schema.sql, 02_seed.sql, 03_users.sql).
-
+```
+4. Configura la base de datos ejecutando los scripts de la carpeta src/ en el SQL Editor de Supabase:
+5. ```bash
+src/01_schema.sql - Core database structure.
+src/02_seed.sql - Seed data for testing.
+src/03_users.sql - Security policies (RLS) and triggers.
+```
 **Arquitectura y Stack**
 
 El proyecto implementa Clean Architecture y el patrón MVVM para separar la lógica de negocio de la interfaz.
@@ -150,7 +154,7 @@ El proyecto implementa Clean Architecture y el patrón MVVM para separar la lóg
 * iOS: Cupertino Glassmorphism (Liquid Glass) adaptado para "iPhone 17 Pro".
 
 **Estructura del proyecto**
-
+```bash
 savings-app-pro/
 ├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
 ├── lib/                  # Flutter Application Source Code
@@ -161,7 +165,7 @@ savings-app-pro/
 ├── queries/              # Business intelligence SQL scripts
 ├── src/                  # Core database DDL and DML scripts
 └── tests/                # QA bug reports and test cases
-
+```
 **Equipo y autores**
 
 | Rol | Nombre | Responsabilidades |
