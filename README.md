@@ -97,13 +97,21 @@ savings-app-pro/
 
 ---
 
-### [Versión en Español]
+## [Versión en Español]
 
 Aplicación móvil multiplataforma desarrollada en Flutter, diseñada para revolucionar la gestión de ahorros personales permitiendo administrar finanzas mediante metas a plazo fijo y cuentas de ahorro libre.
 
 ### Inicio Rápido
 
 Sigue estas instrucciones para configurar una copia local del proyecto.
+
+### Tabla de Contenido
+* [Getting Started](#-getting-started)
+* [Architecture & Tech Stack](#-architecture--tech-stack)
+* [Design System](#-design-system)
+* [Project Structure](#-project-structure)
+* [Team & Authors](#-team--authors)
+
 
 **Prerrequisitos:**
 
