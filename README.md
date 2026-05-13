@@ -133,7 +133,7 @@ cd savings-app-pro
 flutter pub get
 ```
 4. Configura la base de datos ejecutando los scripts de la carpeta src/ en el SQL Editor de Supabase:
-5. ```bash
+```bash
 src/01_schema.sql - Core database structure.
 src/02_seed.sql - Seed data for testing.
 src/03_users.sql - Security policies (RLS) and triggers.
