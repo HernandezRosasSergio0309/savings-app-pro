@@ -49,7 +49,7 @@ cd savings-app-pro
 flutter pub get
 
 4. Set up the Database (Supabase):
-
+```bash
 Execute the SQL scripts located in the src/ folder in the following order inside your Supabase SQL Editor:
 * src/01_schema.sql - Core database structure.
 * src/02_seed.sql - Seed data for testing.
