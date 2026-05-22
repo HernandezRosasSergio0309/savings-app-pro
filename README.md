@@ -1,177 +1,52 @@
-# Galaxy Savings
-
-![Flutter](https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter)
-![Supabase](https://img.shields.io/badge/Supabase-Backend-47C28B?logo=supabase)
-![Riverpod](https://img.shields.io/badge/State_Management-Riverpod-00A8E1)
-![Architecture](https://img.shields.io/badge/Architecture-MVVM_%2B_Clean-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-> [!NOTE]
-> **Bilingual Repository:** Scroll down for the Spanish version. / Desplázate hacia abajo para la versión en español.
-
----
-
-## [English Version]
-
-A comprehensive multi-platform mobile application built with Flutter that empowers users to seamlessly manage their finances through target-based goals and free-form saving accounts. 
-
-### Table of Contents
-* [Getting Started](#-getting-started)
-* [Architecture & Tech Stack](#-architecture--tech-stack)
-* [Design System](#-design-system)
-* [Project Structure](#-project-structure)
-* [Team & Authors](#-team--authors)
-
----
-
-### Getting Started
-
-Follow these instructions to set up a local copy of the project for development.
-
-**Prerequisites:**
-
-* [Flutter SDK](https://docs.flutter.dev/get-started/install)
-* Git
-* A Supabase project instance
-
-**Installation:**
-
-1. Clone the repository:
-```bash
-git clone [https://github.com/HernandezRosasSergio0309/savings-app-pro.git](https://github.com/HernandezRosasSergio0309/savings-app-pro.git)
-```
-2. Navigate to the project directory:
-```bash
-cd savings-app-pro
-```
-3. Install software dependencies:
-```bash
-flutter pub get
-```
-4. Set up the Database (Supabase):
-```bash
-Execute the SQL scripts located in the src/ folder in the following order inside your Supabase SQL Editor:
-src/01_schema.sql - Core database structure.
-src/02_seed.sql - Seed data for testing.
-src/03_users.sql - Security policies (RLS) and triggers.
-```
-**Architecture & Tech Stack**
-
-This project strictly follows the Clean Architecture principles combined with the MVVM (Model-View-ViewModel) design pattern to ensure maximum decoupling, scalability, and testability.
-* Frontend: Flutter (Dart)
-* Backend & Database: Supabase (PostgreSQL, Auth)
-* State Management: Riverpod
-* Routing: GoRouter
-* Naming Convention: snake_case for files/folders, CamelCase for classes, and camelCase for variables.
-* Internationalization (i18n): Native support configured via .arb files.
-
-**Design System**
-
-The application is highly adaptive, strictly adhering to platform-specific guidelines:
-* Android (Material Design): Base reference frames built on "Android Compact" (412x917 px). Utilizes standard Material elevation (Y: 4, Blur: 8, 10% opacity) and 12px border radius.
-* iOS (Cupertino Glassmorphism): Base reference frames built on "iPhone 17 Pro" (402x874px). Implements "Liquid Glass" effects utilizing precise refraction, depth (50%), and frost (3%) properties over a dark slate base (#94A3B8) with 20% opacity.
-
-**Project Structure**
-```bash
-savings-app-pro/
-├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
-├── lib/                  # Flutter Application Source Code
-│   ├── core/             # Routing, Constants, Localization, Themes
-│   ├── data/             # Models (DTOs), Repositories, Data Sources
-│   ├── domain/           # Pure Entities, Repository Interfaces, Use Cases
-│   └── presentation/     # Screens, Widgets, ViewModels (MVVM)
-├── queries/              # Business intelligence SQL scripts
-├── src/                  # Core database DDL and DML scripts
-└── tests/                # QA bug reports and test cases
-```
-**Team & Authors**
-
-| Role | Name | Responsibilities |
-| :--- | :--- | :--- |
-| The Analyst & Designer (Architect) | Hernández Rosas Sergio | Visual model, Normalization (3NF), Flutter core setup & UI/UX. |
-| The SQL Developer (Builder) | Bañuelos García Said | DDL code, accurate data types, Dart Entities & DTOs. |
-| The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
-| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
-| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
-
----
-
-## [Versión en Español]
-
-Aplicación móvil multiplataforma desarrollada en Flutter, diseñada para revolucionar la gestión de ahorros personales permitiendo administrar finanzas mediante metas a plazo fijo y cuentas de ahorro libre.
-
-### Inicio Rápido
-
-Sigue estas instrucciones para configurar una copia local del proyecto.
-
-### Tabla de Contenido
-* [Getting Started](#-getting-started)
-* [Architecture & Tech Stack](#-architecture--tech-stack)
-* [Design System](#-design-system)
-* [Project Structure](#-project-structure)
-* [Team & Authors](#-team--authors)
-
----
-
-**Prerrequisitos:**
-
-* Flutter SDK
-* Git
-* Un proyecto configurado en Supabase
-
-**Instalación:**
-
-1. Clona el repositorio:
-```bash
-git clone https://github.com/HernandezRosasSergio0309/savings-app-pro.git
-```
-2. Entra al directorio:
-```bash
-cd savings-app-pro
-```
-3. Instala las dependencias:
-```bash
-flutter pub get
-```
-4. Configura la base de datos ejecutando los scripts de la carpeta src/ en el SQL Editor de Supabase:
-```bash
-src/01_schema.sql - Core database structure.
-src/02_seed.sql - Seed data for testing.
-src/03_users.sql - Security policies (RLS) and triggers.
-```
-**Arquitectura y Stack**
-
-El proyecto implementa Clean Architecture y el patrón MVVM para separar la lógica de negocio de la interfaz.
-
-* Frontend: Flutter & Dart
-* Backend: Supabase (PostgreSQL)
-* Gestor de Estado: Riverpod
-* Nomenclatura: snake_case para archivos y documentación bilingüe.
-
-**Sistema de Diseño**
-
-* Android: Material Design basado en el frame "Android compacto" (412x917 px).
-* iOS: Cupertino Glassmorphism (Liquid Glass) adaptado para "iPhone 17 Pro".
-
-**Estructura del proyecto**
-```bash
-savings-app-pro/
-├── docs/                 # ERD Diagram, Backlog, Normalization, User Stories
-├── lib/                  # Flutter Application Source Code
-│   ├── core/             # Routing, Constants, Localization, Themes
-│   ├── data/             # Models (DTOs), Repositories, Data Sources
-│   ├── domain/           # Pure Entities, Repository Interfaces, Use Cases
-│   └── presentation/     # Screens, Widgets, ViewModels (MVVM)
-├── queries/              # Business intelligence SQL scripts
-├── src/                  # Core database DDL and DML scripts
-└── tests/                # QA bug reports and test cases
-```
-**Equipo y autores**
-
-| Rol | Nombre | Responsabilidades |
-| :--- | :--- | :--- |
-| The Analyst & Designer (Architect) | Hernández Rosas Sergio | Visual model, Normalization (3NF), Flutter core setup & UI/UX. |
-| The SQL Developer (Builder) | Bañuelos García Said | DDL code, accurate data types, Dart Entities & DTOs. |
-| The Database Administrator (Guardian) | Santos Hernández Diego Manuel | Security, RLS, backups, and user permissions. |
-| The Query Master (Manipulator) | Venegas Rojas Jeremiah Domingo | Seed data, BI reports, AuthRepository implementation. |
-| The SQL Tester (QA / Breaker) | Hernández Vera Ricardo | Referential integrity validation, E2E testing, Bug reporting. |
+🌌 Galaxy Savings App Pro
+Galaxy Savings es una aplicación móvil multiplataforma desarrollada en Flutter enfocada en la gestión inteligente e interactiva de metas de ahorro. Utiliza metodologías ágiles para su desarrollo, aplicando Clean Architecture y el patrón de diseño MVVM (Model-View-ViewModel).
+🎯 Product Goal & Overview
+Proveer a los usuarios de una herramienta gamificada, intuitiva y altamente responsiva para establecer objetivos financieros, registrar transacciones (depósitos y retiros), visualizar historiales de balance y mantener la motivación mediante un sistema de rachas diarias y animaciones inmersivas.
+🏛️ Software Requirements Specification (SRS)
+⚙️ Requisitos Funcionales (FR)
+1 Autenticación Segura: El sistema debe permitir el registro, inicio de sesión y eliminación de cuentas de usuario mediante Supabase Auth.
+2 Gestión de Metas de Ahorro: El usuario debe poder crear metas con un objetivo financiero (Target) o metas de ahorro libre (Freestyle), definiendo nombre, monto y fecha límite.
+3 Control de Transacciones: El sistema debe registrar depósitos y retiros, calculando dinámicamente el balance histórico sin permitir retiros que superen el saldo acumulado (fondos insuficientes).
+4 Sistema de Rachas (Streaks): El sistema auditará transacciones en bloques de 24 horas para marcar con éxito o fallo el hábito de ahorro diario del usuario.
+5 Personalización de Perfil: El usuario podrá actualizar su ⁠username⁠ (con validación de profanidad) y su ⁠avatar⁠ (subida de imágenes a Supabase Storage).
+🛡️ Requisitos No Funcionales (NFR)
+1 Arquitectura: Patrón MVVM con gestión de estados reactiva a través de ⁠flutter_riverpod⁠.
+2 Internacionalización (i18n): Soporte dinámico para 9 idiomas usando archivos ⁠.arb⁠ sin código duro (hardcoded).
+3 Diseño Responsivo UI/UX: Interfaz fluida adaptable a cualquier tamaño de pantalla utilizando ⁠.clamp()⁠ para el cálculo milimétrico de dimensiones, fuentes dinámicas y modo claro/oscuro.
+4 Rendimiento Visual: Implementación de animaciones personalizadas ligeras (⁠CustomPainter⁠, ⁠Transform.scale⁠) como CosmicCelebrationStars para evitar dependencias pesadas que afecten el motor Skia/Impeller.
+5 Seguridad (Backend): Toda consulta a la base de datos PostgreSQL debe respetar las políticas de seguridad a nivel de fila (Row Level Security - RLS) de Supabase.
+🗺️ Product Backlog & Agile Framework
+El desarrollo se gestionó mediante un backlog estructurado en Épicas y Historias de Usuario (User Stories).
+📌 Epics
+￼ Epic 1: Sistema de Identidad y Seguridad (Auth & Perfil).
+￼ Epic 2: Dashboard y Visualización de Metas (UI Responsiva).
+￼ Epic 3: Motor Transaccional y Gamificación (Rachas y Celebraciones).
+￼ Epic 4: Infraestructura, Localización y Temas (i18n, Dark Mode).
+👤 Historias de Usuario & Criterios de Aceptación (Gherkin Syntax)
+A continuación, un ejemplo del modelo de especificación utilizado durante los sprints, redactado en sintaxis Gherkin (Dado que / Cuando / Entonces):
+User Story: Registro de Depósitos y Celebración de Meta
+Criterios de Aceptación (Acceptance Criteria):
+Escenario 1: Depósito regular que no alcanza la meta al 100%.
+￼ Dado que el usuario se encuentra en la pantalla ⁠ManageTargetSavingScreen⁠ con una meta de $1000 y un saldo de $500,
+￼ Cuando el usuario ingresa ⁠$100.00⁠ en el campo formateado y presiona "Guardar",
+￼ Entonces el saldo acumulado se actualiza a $600,
+￼ Y el porcentaje de progreso sube a 60%,
+￼ Y se agrega un registro tipo "deposito" al historial de transacciones.
+Escenario 2: Depósito que alcanza o supera la meta (Gamificación).
+￼ Dado que el usuario tiene una meta de $1000 y un saldo actual de $900,
+￼ Cuando el usuario realiza un depósito de ⁠$150.00⁠,
+￼ Entonces el sistema registra el nuevo balance de $1050,
+￼ Y el indicador de progreso topa visualmente al 100%,
+￼ Y el sistema oculta los controles de transacción,
+￼ Y se dispara la animación de partículas cósmicas (⁠CosmicCelebrationStars⁠) junto con el mensaje de "¡Felicidades, alcanzaste tu objetivo!".
+Escenario 3: Intento de retiro superior a los fondos (Validación de Negocio).
+￼ Dado que el usuario tiene un saldo actual de $200,
+￼ Cuando intenta realizar un "retiro" por la cantidad de ⁠$300.00⁠,
+￼ Entonces el ViewModel intercepta la operación y lanza un error ⁠FormatException('insufficient_funds')⁠,
+￼ Y la Vista (UI) muestra un ⁠SnackBar⁠ rojo indicando "No tienes suficientes fondos para realizar esta acción".
+🏗️ Stack Tecnológico y Estructura
+￼ Frontend: Flutter SDK, Dart.
+￼ Backend as a Service: Supabase (PostgreSQL, Auth, Storage).
+￼ State Management: Riverpod (⁠StateNotifier⁠, ⁠FutureProvider⁠, ⁠ConsumerWidget⁠).
+￼ Enrutamiento: ⁠go_router⁠ para deep-linking e inyección de contexto segura.
+🚀 Instalación y Despliegue
