@@ -95,6 +95,16 @@ flutter run
 
 ---
 
-## 💡 Performance Note:
+## Performance Note:
 
 To test optimal fluidity and native frame rates from the graphics engine (Impeller/Skia) on the spatial particle animations (CosmicCelebrationStars), it is highly recommended to compile the project on a physical device using release mode: `flutter run --release`.
+
+---
+
+## Academic Disclaimer & License
+
+This repository contains an academic project developed for educational purposes and learning object evidence at CBTis 47. It is not intended for commercial use, financial advice, or production-ready deployment.
+
+The codebase is provided "as is", without warranty of any kind, express or implied. You are free to study, fork, and use this code as a reference for your own learning process under the **MIT License**.
+
+*Built with passion to demonstrate software engineering principles, UI/UX design, and Clean Architecture.*
