@@ -1,4 +1,4 @@
-# 🌌 Galaxy Savings App Pro
+# Galaxy Savings App Pro
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
@@ -9,7 +9,7 @@
 
 ---
 
-## 🎯 Product Goal & Overview
+## Product Goal & Overview
 
 To provide users with an intuitive, immersive, and highly responsive tool to set financial goals, track transactions (deposits and withdrawals), visualize balance history, and maintain saving consistency through a daily streaks system and interactive animations.
 
@@ -19,12 +19,12 @@ To provide users with an intuitive, immersive, and highly responsive tool to set
 
 To ensure maintainability and a clean, agile workflow within the repository, the requirements specification and development planning have been modularly divided into the following documents:
 
-* 📖 **[Product Backlog & SRS](PRODUCT_BACKLOG.md):** Contains the Epics, User Stories (using Gherkin syntax), and the Software Requirements Specification (Functional and Non-Functional Requirements).
-* 🏃 **[Sprint Backlog](SPRINT_BACKLOG.md):** Details the iterative flow of the current sprint, individual task assignments, and the role breakdown of the development team.
+*  **[Product Backlog & SRS](PRODUCT_BACKLOG.md):** Contains the Epics, User Stories (using Gherkin syntax), and the Software Requirements Specification (Functional and Non-Functional Requirements).
+*  **[Sprint Backlog](SPRINT_BACKLOG.md):** Details the iterative flow of the current sprint, individual task assignments, and the role breakdown of the development team.
 
 ---
 
-## 🏗️ Tech Stack & Structure
+## Tech Stack & Structure
 
 * **Frontend:** Flutter SDK, Dart Language.
 * **Backend as a Service (BaaS):** Supabase (PostgreSQL Database, Auth, Storage).
@@ -32,7 +32,7 @@ To ensure maintainability and a clean, agile workflow within the repository, the
 * **Routing:** `go_router` for declarative and secure navigation.
 * **Architectural Pattern:** Clean Architecture + Feature-First Presentation + MVVM.
 
-### 📂 Detailed Project Structure (`lib/`)
+### Detailed Project Structure (`lib/`)
 
 ```text
 lib/
@@ -65,7 +65,7 @@ lib/
 
 ---
 
-## 🚀 Installation & Deployment
+## Installation & Deployment
 
 Follow these steps to clone the project and run it locally in your development environment:
 
