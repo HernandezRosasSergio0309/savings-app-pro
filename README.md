@@ -15,7 +15,7 @@ To provide users with an intuitive, immersive, and highly responsive tool to set
 
 ---
 
-## 📚 Project Documentation
+## Project Documentation
 
 To ensure maintainability and a clean, agile workflow within the repository, the requirements specification and development planning have been modularly divided into the following documents:
 
