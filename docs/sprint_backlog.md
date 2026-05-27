@@ -1,42 +1,42 @@
 # Sprint Backlog
 
-Este documento refleja el trabajo iterativo, la asignación de roles y el seguimiento de las tareas activas para el ciclo de desarrollo actual de **Galaxy Savings App Pro**. Se utiliza para mantener la transparencia y el ritmo constante del equipo de desarrollo.
+This document reflects the iterative work, role assignment, and tracking of active tasks for the current development cycle of **Galaxy Savings App Pro**. It is used to maintain transparency and a steady pace for the development team.
 
 ---
 
-## Equipo de Desarrollo y Roles
+## Development Team & Roles
 
-El escuadrón técnico detrás de la construcción de la base de datos, la lógica de negocio y la interfaz del sistema está compuesto por:
+The technical squad behind the construction of the database, business logic, and system interface is composed of:
 
-* **Sergio Hernández Rosas** — Analista y Diseñador (UI/UX, MVVM Architecture & Flutter Frontend).
+* **Sergio Hernández Rosas** — Analyst and Designer (UI/UX, MVVM Architecture & Flutter Frontend).
 * **Diego Manuel Santos Hernández** — Database Administrator (DBA & Supabase Infrastructure).
-* **Said Bañuelos García** — SQL Developer (Tablas, Relaciones y Row Level Security).
-* **Jeremiah Venegas Rojas** — Query Master (Consultas transaccionales e integridad de datos).
-* **Ricardo Hernández Vera** — Tester / QA (Pruebas de estrés y validación de casos de uso).
+* **Said Bañuelos García** — SQL Developer (Tables, Relationships, and Row Level Security).
+* **Jeremiah Venegas Rojas** — Query Master (Transactional queries and data integrity).
+* **Ricardo Hernández Vera** — Tester / QA (Stress testing and use case validation).
 
 ---
 
-## Tablero de Tareas (Sprint Actual)
+## Task Board (Current Sprint)
 
-A continuación se detalla el desglose de tareas técnicas derivadas de las Historias de Usuario aceptadas para el presente ciclo.
+Below is the breakdown of technical tasks derived from the accepted User Stories for the current cycle.
 
 | ID | Tarea / Descripción Técnica | Asignado a | Estado |
 | :--- | :--- | :--- | :--- |
-| **TSK-01** | **[DB]** Esquematización de las tablas `savings_goals` y `goal_transactions` en PostgreSQL (Supabase). | Diego Manuel | Completado ✅ |
-| **TSK-02** | **[UI/UX]** Implementación de la vista MVVM para la pantalla principal (Dashboard) utilizando Riverpod (`savingsProvider`). | Sergio Hernández | Completado ✅ |
-| **TSK-03** | **[SQL]** Creación de políticas de seguridad (RLS) para asegurar que cada usuario solo lea sus propias metas. | Said Bañuelos | Completado ✅ |
-| **TSK-04** | **[Logic]** Desarrollo del motor lógico para la reconstrucción del balance histórico a partir de depósitos y retiros. | Jeremiah Venegas | En Progreso 🔄 |
-| **TSK-05** | **[Logic]** Implementación del cálculo de rachas (Streaks) en bloques de 24 horas dentro del `ManageTargetViewModel`. | Sergio Hernández | En Progreso 🔄 |
-| **TSK-06** | **[QA]** Ejecución de pruebas de intercepción: Validar que el sistema bloquee retiros con fondos insuficientes. | Ricardo Hernández | Pendiente ⏳ |
-| **TSK-07** | **[UI/UX]** Integración de animaciones inmersivas (`CosmicCelebrationStars`) al alcanzar el 100% de la meta. | Sergio Hernández | Pendiente ⏳ |
+| **TSK-01** | **[DB]** Schema design for the `savings_goals` and `goal_transactions` tables in PostgreSQL (Supabase). | Diego Manuel | Completed |
+| **TSK-02** | **[UI/UX]** Implementation of the MVVM view for the main screen (Dashboard) using Riverpod (`savingsProvider`). | Sergio Hernández | Completed |
+| **TSK-03** | **[SQL]** Creation of security policies (RLS) to ensure that each user can only read their own goals. | Said Bañuelos | Completed |
+| **TSK-04** | **[Logic]** Development of the logic engine for the reconstruction of the historical balance from deposits and withdrawals. | Jeremiah Venegas | In Progress |
+| **TSK-05** | **[Logic]** Implementation of streaks calculation in 24-hour blocks within the `manage_target_screen_view_model`. | Sergio Hernández | In Progress |
+| **TSK-06** | **[QA]** Execution of interception tests: Validate that the system blocks withdrawals with insufficient funds. | Ricardo Hernández | Pending |
+| **TSK-07** | **[UI/UX]** Integration of immersive animations (`cosmic_celebration_stars`) upon reaching 100% of the goal. | Sergio Hernández | Pending |
 
 ---
 
-## Definición de Hecho (Definition of Done - DoD)
+## Definition of Done (DoD)
 
-Para que una tarea del tablero anterior se marque como **Completada ✅**, debe cumplir estrictamente con los siguientes criterios:
+For a task on the board above to be marked as **Completed**, it must strictly meet the following criteria:
 
-1. El código compila sin advertencias (warnings) ni errores en el analizador de Dart.
-2. La lógica de negocio está completamente aislada en su respectivo `ViewModel` o `Provider`.
-3. No existen cadenas de texto estáticas (hardcoded); todo texto de UI debe utilizar los archivos de localización `.arb`.
-4. El Tester/QA ha validado los escenarios descritos en los criterios de aceptación de la Historia de Usuario correspondiente.
+1. The code compiles without warnings or errors in the Dart analyzer.
+2. The business logic is completely isolated in its respective `ViewModel` or `Provider`.
+3. There are no hardcoded text strings; all UI text must use `.arb` localization files.
+4. The Tester/QA has validated the scenarios described in the acceptance criteria of the corresponding User Story.
