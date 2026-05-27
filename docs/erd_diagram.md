@@ -12,27 +12,27 @@ erDiagram
     }
 
     FREQUENCIES {
-        int2 frequency_id PK
+        smallint frequency_id PK
         text frequency_name
     }
 
     SAVINGS_GOALS {
-        int8 goal_id PK
+        bigint goal_id PK
         uuid user_id FK
-        int2 frequency_id FK
+        smallint frequency_id FK
         text goal_name
         numeric target_amount
         numeric periodic_amount
         date start_date
         date end_date
-        bool is_system_goal
+        boolean is_system_goal
     }
 
     GOAL_TRANSACTIONS {
-        int8 transaction_id PK
-        int8 goal_id FK
+        bigint transaction_id PK
+        bigint goal_id FK
         numeric amount
         transaction_type_enum transaction_type
-        timestamptz transaction_date
+        timestamp transaction_date
     }
 ~~~
