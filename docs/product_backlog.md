@@ -1,88 +1,86 @@
 # Product Backlog & Software Requirements Specification (SRS)
 
-Este documento detalla la especificación formal de requisitos, la arquitectura de datos subyacente y la planeación ágil de alto nivel para **Galaxy Savings App Pro**. La estructura descrita garantiza la integridad del patrón MVVM, aislando las reglas de negocio de la capa de presentación.
+This document details the formal software requirements specification, the underlying data architecture, and the high-level agile planning for **Galaxy Savings App Pro**. The described structure ensures the integrity of the MVVM pattern, isolating the business rules from the presentation layer.
 
 ---
 
-## 1. Arquitectura de Datos y Entidades (Data Schema)
+## 1. Data Architecture & Entities (Data Schema)
 
-El sistema se apoya en una base de datos relacional PostgreSQL (Supabase) estructurada bajo los siguientes esquemas principales:
+The system relies on a PostgreSQL relational database (Supabase) structured under the following main schemas:
+### 1.1 Entity: `savings_goals`
+Represents the central savings goal, strictly linked to the account owner.
+* `goal_id` (UUID, Primary Key): Unique identifier for the goal.
+* `user_id` (UUID, Foreign Key): Goal owner (Security Lock for RLS).
+* `goal_name` (Text): Descriptive name of the goal.
+* `target_amount` (Numeric, Nullable): Financial target amount. If `null`, the system automatically classifies the goal as (*Freestyle*) savings.
+* `start_date` (Timestamptz): Exact creation date and time, used as the starting point ("Epoch") for the streaks engine.
+* `frequency_id` (Integer, Foreign Key): Reference to the `frequencies` table to determine the suggested periodicity.
 
-### 1.1 Entidad: `savings_goals`
-Representa la meta central de ahorro, vinculada de forma estricta al propietario de la cuenta.
-* `goal_id` (UUID, Primary Key): Identificador único de la meta.
-* `user_id` (UUID, Foreign Key): Propietario de la meta (Candado de Seguridad para RLS).
-* `goal_name` (Text): Nombre descriptivo de la meta.
-* `target_amount` (Numeric, Nullable): Monto objetivo financiero. Si es `null`, el sistema clasifica automáticamente la meta como ahorro libre (*Freestyle*).
-* `start_date` (Timestamptz): Fecha y hora exacta de creación, utilizada como punto de partida ("Epoch") para el motor de rachas.
-* `frequency_id` (Integer, Foreign Key): Referencia a la tabla `frequencies` para determinar la periodicidad sugerida.
-
-### 1.2 Entidad: `goal_transactions`
-Tabla de auditoría inmutable de movimientos financieros.
-* `goal_id` (UUID, Foreign Key): Referencia a la meta padre.
-* `amount` (Numeric): Cantidad monetaria de la operación.
-* `transaction_type` (String): Clasificación estricta (`'deposito'` o `'retiro'`).
-* `transaction_date` (Timestamptz): Marca de tiempo ISO-8601 del momento exacto del registro.
-
+### 1.2 Entity: `goal_transactions`
+Immutable audit table for financial movements.
+* `goal_id` (UUID, Foreign Key): Reference to the parent goal.
+* `amount` (Numeric): Monetary amount of the operation.
+* `transaction_type` (String): Strict classification (`'deposito'` o `'retiro'`).
+* `transaction_date` (Timestamptz): ISO-8601 timestamp of the exact moment of the record.
 ---
 
 ## 2. Software Requirements Specification (SRS)
 
-### 2.1 Requisitos Funcionales y Reglas de Negocio (FR)
+### 2.1 Functional Requirements & Business Rules (FR)
 
-#### **Módulo: Motor Transaccional y Modalidades**
-* **FR-01 (Clasificación Dinámica):** Al consultar el sistema, se debe evaluar el campo `target_amount`. Si carece de valor, la meta operará en modalidad *Freestyle* (ahorro sin límite); de lo contrario, operará en modalidad *Target* (objetivo fijo).
-* **FR-02 (Balance Histórico):** El sistema procesará cronológicamente la tabla `goal_transactions`. Todo `transaction_type` igual a `'deposito'` sumará al acumulado; si es `'retiro'`, restará, generando un balance histórico.
-* **FR-03 (Restricción Visual - Clamp):** Para metas *Target*, el porcentaje de avance se calculará dividiendo el balance actual entre el `target_amount`, restringiendo matemáticamente el valor entre 0 y 100 (`clamp(0, 100)`) para prevenir desbordamientos en la UI.
-* **FR-04 (Intercepción de Fondos Insuficientes):** El ViewModel debe auditar todo intento de `'retiro'`. Si el `amount` supera el balance actual, la transacción será abortada lanzando la excepción `FormatException('insufficient_funds')`.
+#### **Module: Transactional Engine & Modalities**
+* **FR-01 (Dynamic Classification):** When querying the system, the `target_amount` field must be evaluated. If it lacks a value, the goal will operate in (*Freestyle*) mode (limitless savings); otherwise, it will operate in Target mode (fixed objective).
+* **FR-02 (Historical Balance):** The system will chronologically process the `goal_transactions` table. Every `transaction_type` equal to `'deposito'` will add to the accumulated total; if it is `'retiro'`, it will subtract, generating a historical balance.
+* **FR-03 (Visual Restriction - Clamp):** For (*Target*) goals, the progress percentage will be calculated by dividing the current balance by the `target_amount`, mathematically restricting the value between 0 and 100 (`clamp(0, 100)`) to prevent overflows in the UI.
+* **FR-04 (Insufficient Funds Interception):** The ViewModel must audit every `'retiro'` attempt. If the `amount` exceeds the current balance, the transaction will be aborted by throwing the `FormatException('insufficient_funds')` exception.
 
-#### **Módulo: Gamificación (Streaks Engine)**
-* **FR-05 (Auditoría de Rachas):** El motor evaluará bloques exactos de 24 horas, comenzando desde el `start_date` de la meta hasta la fecha actual.
-* **FR-06 (Criterio de Éxito):** Un bloque de 24 horas será marcado como exitoso (`isSuccess: true`) si y solo si existe al menos un registro de `'deposito'` dentro de dicho margen temporal.
+#### **Module: Gamification (Streaks Engine)**
+* **FR-05 (Streaks Audit):** The engine will evaluate exact 24-hour blocks, starting from the goal's `start_date` up to the current date.
+* **FR-06 (Success Criteria):** A 24-hour block will be marked as successful (`isSuccess: true`) if and only if there is at least one `'deposito'` record within that time frame.
 
-### 2.2 Requisitos No Funcionales (NFR)
-* **NFR-01 (Aislamiento de Datos):** Las consultas deben estar filtradas a nivel de cliente usando el identificador de la sesión activa (`eq('user_id', currentUser.id)`), respaldado por políticas RLS en PostgreSQL.
-* **NFR-02 (Gestión de Memoria):** Los flujos de datos asíncronos en pantallas de navegación deben utilizar la directiva `.autoDispose` para purgar la caché y prevenir fugas de memoria al desmontar la vista.
-* **NFR-03 (Internacionalización):** El sistema debe proveer soporte nativo e instantáneo para 9 idiomas a través de archivos `.arb`, evitando el uso de cadenas de texto estáticas (hardcoded) en la UI.
+### 2.2 Non-Functional Requirements (NFR)
+* **NFR-01 (Data Isolation):** Queries must be filtered at the client level using the active session identifier (`eq('user_id', currentUser.id)`), backed by RLS policies in PostgreSQL.
+* **NFR-02 (Memory Management):** Asynchronous data streams in navigation screens must use the `.autoDispose` directive to purge the cache and prevent memory leaks when unmounting the view.
+* **NFR-03 (Internationalization):** The system must provide native and instant support for 9 languages through `.arb` files, avoiding the use of hardcoded text strings in the UI.
 
 ---
 
 ## 3. Product Backlog (Epics & User Stories)
 
-### 3.1 Épicas (Epics)
-* **EPIC-01: Identidad y Seguridad** (Auth, Row Level Security, Client-Side Filtering).
-* **EPIC-02: Dashboard e Interfaz Adaptativa** (Responsive UI, Liquid Glass Aesthetics, i18n).
-* **EPIC-03: Motor Transaccional** (Target/Freestyle logic, Balance Reconstruction).
-* **EPIC-04: Gamificación Espacial** (Streaks Engine, CustomPainter Animations).
+### 3.1 Epics
+* **EPIC-01: Identity & Security** (Auth, Row Level Security, Client-Side Filtering).
+* **EPIC-02: Dashboard & Adaptive Interface** (Responsive UI, Liquid Glass Aesthetics, i18n).
+* **EPIC-03: Transactional Engine** (Target/Freestyle logic, Balance Reconstruction).
+* **EPIC-04: Spatial Gamification** (Streaks Engine, CustomPainter Animations).
 
-### 3.2 User Stories & Acceptance Criteria (Sintaxis Gherkin)
+### 3.2 User Stories & Acceptance Criteria (Gherkin Syntax)
 
-#### **US-01: Carga Privada de Metas en Dashboard**
-> **Como** usuario autenticado,
-> **Quiero** que el panel principal muestre únicamente mi información,
-> **Para** garantizar la privacidad absoluta de mis finanzas.
+#### **US-01: Private Goal Loading on Dashboard**
+> **As an** authenticated user,
+> **I want** the main dashboard to display only my information,
+> **So that** I can ensure the absolute privacy of my finances.
 
-**Escenarios de Aceptación:**
-* **Dado que** el usuario ha iniciado sesión en el dispositivo,
-* **Cuando** el sistema inicializa la carga del panel de control,
-* **Entonces** el Provider inyecta el `currentUser.id` en la petición, recupera exclusivamente las metas asociadas, y limpia los datos de la memoria al cambiar de módulo.
+**Acceptance Scenarios:**
+* **Given that** the user has logged into the device,
+* **When** the system initializes the loading of the dashboard,
+* **Then** the Provider injects the `currentUser.id` into the request, exclusively retrieves the associated goals, and clears the data from memory upon changing modules.
 
-#### **US-02: Intercepción de Transacciones Inválidas**
-> **Como** usuario del sistema,
-> **Quiero** registrar retiros de mis metas,
-> **Para** utilizar mis fondos, asegurando que no excedo lo que he ahorrado.
+#### **US-02: Invalid Transaction Interception**
+> **As a** system user,
+> **I want** to record withdrawals from my goals,
+> **So that** I can use my funds, ensuring I do not exceed what I have saved.
 
-**Escenarios de Aceptación:**
-* **Dado que** el usuario tiene un balance consolidado de `$150.00`,
-* **Cuando** intenta registrar una operación de `'retiro'` por `$200.00`,
-* **Entonces** el ViewModel bloquea la persistencia de datos, arroja el error `insufficient_funds`, y la vista despliega una notificación de error transaccional.
+**Acceptance Scenarios:**
+* **Given that** the user has a consolidated balance of `$150.00`,
+* **When** attempting to record a `'retiro'` operation for `$200.00`,
+* **Then** the ViewModel blocks data persistence, throws the `insufficient_funds` error, and the view displays a transactional error notification.
 
-#### **US-03: Auditoría de Rachas de Ahorro**
-> **Como** usuario enfocado en la constancia,
-> **Quiero** que el sistema rastree mis aportaciones diarias,
-> **Para** visualizar mi disciplina financiera a través del tiempo.
+#### **US-03: Savings Streaks Audit**
+> **As a** user focused on consistency,
+> **I want** the system to track my daily contributions,
+> **So that** I can visualize my financial discipline over time.
 
-**Escenarios de Aceptación:**
-* **Dado que** inició un periodo de evaluación hoy a las `08:00:00`,
-* **Cuando** el usuario registra un `'deposito'` a las `15:30:00`,
-* **Entonces** la iteración del motor clasifica ese bloque de 24 horas como exitoso en el historial de la meta.
+**Acceptance Scenarios:**
+* **Given that** an evaluation period started today at `08:00:00`,
+* **When** the user records a `'deposito'` at `15:30:00`,
+* **Then** the engine iteration classifies that 24-hour block as successful in the goal's history.
