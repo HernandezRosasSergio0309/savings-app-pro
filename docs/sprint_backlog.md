@@ -23,7 +23,7 @@ Below is the breakdown of technical tasks derived from the accepted User Stories
 | ID | Tarea / Descripción Técnica | Asignado a | Estado |
 | :--- | :--- | :--- | :--- |
 | **TSK-01** | **[DB]** Schema design for the `savings_goals` and `goal_transactions` tables in PostgreSQL (Supabase). | Diego Manuel | Completed |
-| **TSK-02** | **[UI/UX]** Implementation of the MVVM view for the main screen (Dashboard) using Riverpod (`savingsProvider`). | Sergio Hernández | Completed |
+| **TSK-02** | **[UI/UX]** Implementation of the MVVM view for the main screen (Dashboard) using Riverpod (`savings_provider`). | Sergio Hernández | Completed |
 | **TSK-03** | **[SQL]** Creation of security policies (RLS) to ensure that each user can only read their own goals. | Said Bañuelos | Completed |
 | **TSK-04** | **[Logic]** Development of the logic engine for the reconstruction of the historical balance from deposits and withdrawals. | Jeremiah Venegas | In Progress |
 | **TSK-05** | **[Logic]** Implementation of streaks calculation in 24-hour blocks within the `manage_target_screen_view_model`. | Sergio Hernández | In Progress |
