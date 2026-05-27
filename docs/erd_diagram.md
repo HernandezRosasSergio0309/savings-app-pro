@@ -5,34 +5,34 @@ erDiagram
     SAVINGS_GOALS ||--o{ GOAL_TRANSACTIONS : "records"
 
     USERS {
-        int user_id PK
+        uuid user_id PK
         text username
-        varchar email
-        varchar password
+        text email
+        text password
     }
 
     FREQUENCIES {
-        tinyint frequency_id PK
-        varchar frequency_name
+        int2 frequency_id PK
+        text frequency_name
     }
 
     SAVINGS_GOALS {
-        int goal_id PK
-        int user_id FK
-        tinyint frequency_id FK
-        varchar goal_name
-        decimal target_amount
-        decimal periodic_amount
+        int8 goal_id PK
+        uuid user_id FK
+        int2 frequency_id FK
+        text goal_name
+        numeric target_amount
+        numeric periodic_amount
         date start_date
         date end_date
-        boolean is_system_goal
+        bool is_system_goal
     }
 
     GOAL_TRANSACTIONS {
-        int transaction_id PK
-        int goal_id FK
-        decimal amount
-        enum transaction_type
-        timestamp transaction_date
+        int8 transaction_id PK
+        int8 goal_id FK
+        numeric amount
+        transaction_type_enum transaction_type
+        timestamptz transaction_date
     }
 ~~~
