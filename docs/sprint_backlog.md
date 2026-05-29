@@ -177,7 +177,7 @@ For a task to be marked as **Completed**, it must strictly meet the following cr
 
 ---
 
-# Sprint 4 (Closing Cycle)
+## Sprint 4 (Closing Cycle)
 
 This document reflects the iterative work, role assignment, and tracking of active tasks for the final development cycle before the June 12th milestone.
 
