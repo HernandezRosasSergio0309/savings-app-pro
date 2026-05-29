@@ -20,7 +20,7 @@ The technical squad behind the construction of the database, business logic, and
 
 Below is the breakdown of technical tasks derived from the accepted User Stories for the current cycle.
 
-| ID | Tarea / Descripción Técnica | Asignado a | Estado |
+| ID | Task / Technical Description | Assigned To | Status |
 | :--- | :--- | :--- | :--- |
 | **TSK-01** | **[DB]** Schema design for the `savings_goals` and `goal_transactions` tables in PostgreSQL (Supabase). | Diego Manuel | Completed |
 | **TSK-02** | **[UI/UX]** Implementation of the MVVM view for the main screen (Dashboard) using Riverpod (`savings_provider`). | Sergio Hernández | Completed |
