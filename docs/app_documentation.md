@@ -1,55 +1,55 @@
 # Galaxy Savings
 
-Galaxy Savings es una aplicación móvil multiplataforma desarrollada en **Flutter**, diseñada para revolucionar la gestión de ahorros personales. Su objetivo principal es permitir a los usuarios administrar sus finanzas de forma dinámica, intuitiva y altamente personalizable, ofreciendo flujos tanto para ahorros libres como para metas a plazo fijo.
+Galaxy Savings is a cross-platform mobile application developed in **Flutter**, designed to revolutionize personal savings management. Its primary objective is to allow users to manage their finances dynamically, intuitively, and in a highly customizable way, offering flows for both flexible (free) savings and fixed-term goals.
 
-## Características Principales
+## Key Features
 
-El motor de la aplicación se divide en dos modalidades core:
+The application engine is divided into two core modalities:
 
-* **Ahorro con Objetivo (Target Savings):** El usuario define una meta, un monto, una fecha límite y una frecuencia. La aplicación calcula matemáticamente los aportes periódicos necesarios y lleva un registro de rachas (cumplimiento).
-* **Cuenta Libre (Freestyle Savings):** Una alcancía digital sin presiones de tiempo ni montos fijos, ideal para acumular fondos de manera casual con estadísticas detalladas de crecimiento.
+* **Target Savings:** The user defines a goal, an amount, a deadline, and a frequency. The application mathematically calculates the necessary periodic contributions and keeps a record of streaks (compliance).
+* **Freestyle Savings:** A digital piggy bank without time pressures or fixed amounts, ideal for accumulating funds casually with detailed growth statistics.
 
-## Stack Tecnológico y Arquitectura
+## Tech Stack and Architecture
 
-| Componente | Tecnología |
+| Component | Technology |
 | :--- | :--- |
 | **Frontend** | Flutter & Dart |
-| **Backend** | Supabase (Autenticación y PostgreSQL) |
-| **Gestor de Estado** | Riverpod |
-| **Enrutamiento** | GoRouter |
-| **Arquitectura** | MVVM (Model-View-ViewModel) + Clean Architecture |
+| **Backend** | Supabase (Authentication & PostgreSQL) |
+| **State Management** | Riverpod |
+| **Routing** | GoRouter |
+| **Architecture** | MVVM (Model-View-ViewModel) + Clean Architecture |
 
-### Diseño UI/UX (Adaptativo)
-* **Android:** Implementación estricta de Material Design.
-* **iOS:** Implementación de *Cupertino Glassmorphism* (Liquid Glass) con efectos avanzados de transparencia y desenfoque (Próximamente).
+### UI/UX Design (Adaptive)
+* **Android:** Strict implementation of Material Design.
+* **iOS:** Implementation of Cupertino Glassmorphism (Liquid Glass) with advanced transparency and blur effects (Coming soon).
 
 ---
 
-## Estructura de la Aplicación
+## App Structure
 
-El proyecto se compone de **15 vistas principales**, organizadas lógicamente y conectadas mediante una barra de navegación (*Bottom Toolbar*).
+The project consists of **15 main views**, logically organized and connected via a Bottom Toolbar.
 
-### 1. Autenticación y Onboarding
-* **Splash Screen:** Pantalla de carga inicial (3 segundos) con el branding de Galaxy Savings.
-* **Onboarding Screens (3):** Carrusel introductorio que explica el valor de la aplicación.
-* **Login Screen:** Acceso mediante correo y contraseña.
-* **Register Screen:** Creación de cuenta con validaciones estrictas (longitud, duplicados y filtro de lenguaje inapropiado).
+### 1. Authentication and Onboarding
+* **Splash Screen:** Initial loading screen (3 seconds) with Galaxy Savings branding.
+* **Onboarding Screens (3):** Introductory carousel explaining the value of the application.
+* **Login Screen:** Access via email and password.
+* **Register Screen:** Account creation with strict validations (length, duplicates, and inappropriate language filter).
 
-### 2. Panel Principal (Dashboard)
-* **Dashboard Screen:** El núcleo de la app. Muestra una vista general de las cuentas. Cada tarjeta de ahorro incluye:
-    * Nombre y balance actual vs meta.
-    * Barra de progreso porcentual.
-    * **Icono dinámico:** Un cerdito que evoluciona según el porcentaje alcanzado.
-    * Modo edición para gestión de cuentas.
+### 2. Main Dashboard
+* **Dashboard Screen:** The core of the app. Displays an overview of accounts. Each savings card includes:
+    * Name and current balance vs. goal.
+    * Percentage progress bar.
+    * **Icono dinámico:** A piggy bank that evolves according to the percentage reached.
+    * Edit mode for account management.
 
-### 3. Motor de Ahorros
-* **Saving Selection Screen:** Bifurcación para elegir entre "Ahorro con Objetivo" o "Cuenta Libre".
-* **Create Target Saving:** Formulario con cálculo automático de cuotas según meta y tiempo.
-* **Create Freestyle Saving:** Formulario simplificado para alcancías rápidas.
-* **Manage Target Saving:** Panel de control con progreso, historial de rachas (✅/❌), monto faltante y registro de transacciones.
-* **Manage Freestyle Saving:** Panel con balance acumulado, estadísticas (máximos históricos), historial y la opción de "Romper la alcancía".
+### 3. Savings Engine
+* **Saving Selection Screen:** Branching to choose between "Target Savings" or "Freestyle Savings".
+* **Create Target Saving:** Form with automatic installment calculation based on goal and time.
+* **Create Freestyle Saving:** Simplified form for quick piggy banks.
+* **Manage Target Saving:** Control panel with progress, streak history (✅/❌), remaining amount, and transaction log.
+* **Manage Freestyle Saving:** Panel with accumulated balance, statistics (historical highs), history, and a "Break the piggy bank" option.
 
-### 4. Configuración y Perfil
-* **Settings Screen:** Gestión de avatar, preferencias de idioma, tema y seguridad.
-* **Edit Profile Screen:** Actualización de perfil y cambio de contraseña.
-* **Language Screen:** Soporte **i18n** con idiomas disponibles: Inglés, Español, Francés, Italiano, Portugués, Alemán, Japonés, Chino y Coreano.
+### 4. Settings and Profile
+* **Settings Screen:** Avatar management, language preferences, theme, and security.
+* **Edit Profile Screen:** Profile updates and password changes.
+* **Language Screen:** **i18n** support with available languages: English, Spanish, French, Italian, Portuguese, German, Japanese, Chinese, and Korean.
