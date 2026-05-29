@@ -19,8 +19,8 @@ To provide users with an intuitive, immersive, and highly responsive tool to set
 
 To ensure maintainability and a clean, agile workflow within the repository, the requirements specification and development planning have been modularly divided into the following documents:
 
-*  **[Product Backlog & SRS](PRODUCT_BACKLOG.md):** Contains the Epics, User Stories (using Gherkin syntax), and the Software Requirements Specification (Functional and Non-Functional Requirements).
-*  **[Sprint Backlog](SPRINT_BACKLOG.md):** Details the iterative flow of the current sprint, individual task assignments, and the role breakdown of the development team.
+*  **[Product Backlog & SRS](product_backlog.md):** Contains the Epics, User Stories (using Gherkin syntax), and the Software Requirements Specification (Functional and Non-Functional Requirements).
+*  **[Sprint Backlog](sprint_backlog.md):** Details the iterative flow of the current sprint, individual task assignments, and the role breakdown of the development team.
 
 ---
 
