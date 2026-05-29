@@ -1,4 +1,4 @@
-# Sprint History: Galaxy Savings App Pro
+# Sprint Backlog: Galaxy Savings App Pro
 
 This document archives all completed development cycles for the project, tracking our iterative progress from inception to the final milestone.
 
