@@ -1,16 +1,16 @@
-# Sprint Backlog: Galaxy Savings App Pro
+# Sprint Backlog: Galaxy Savings App Pro (Closing Cycle)
 
-This document reflects the iterative work, role assignment, and tracking of active tasks for the current development cycle of **Galaxy Savings App Pro**.
+This document reflects the iterative work, role assignment, and tracking of active tasks for the final development cycle before the June 12th milestone.
 
 ---
 
 ## Sprint Goal
 *Define the primary objective for this cycle.*
-> **"Finalize the core transaction engine and implement secure streak tracking to ensure data integrity and user consistency."**
+> **"Complete core savings modalities (Target/Freestyle) and integrate final UI aesthetics (Glassmorphism) for iOS deployment."**
 
 ## Sprint Timeline
-* **Start Date:** 2026-05-29
-* **End Date:** 2026-06-12 (2-week Sprint)
+* **Start Date:** 2026-05-15
+* **End Date:** 2026-06-05(Closing Cycle)
 
 ---
 
@@ -23,17 +23,15 @@ This document reflects the iterative work, role assignment, and tracking of acti
 
 ---
 
-## Task Board (Current Sprint)
+## Task Board (Closing Sprint)
 
 | ID | Task / Technical Description | Assigned To | Status |
 | :--- | :--- | :--- | :--- |
-| **TSK-01** | **[DB]** Schema design for the `savings_goals` and `goal_transactions` tables. | Diego Manuel | Completed |
-| **TSK-02** | **[UI/UX]** Implementation of the MVVM view for the Dashboard using Riverpod. | Sergio Hernández | Completed |
-| **TSK-03** | **[SQL]** Creation of security policies (RLS). | Said Bañuelos | Completed |
-| **TSK-04** | **[Logic]** Historical balance reconstruction engine. | Jeremiah Venegas | In Progress |
-| **TSK-05** | **[Logic]** Streaks calculation in 24-hour blocks. | Sergio Hernández | In Progress |
-| **TSK-06** | **[QA]** Withdrawal interception tests (Insufficient funds). | Ricardo Hernández | Pending |
-| **TSK-07** | **[UI/UX]** Cosmic celebration animations (100% goal). | Sergio Hernández | Pending |
+| **TSK-08** | **[UI/Logic]** Implement `TargetSaving` workflow (Create/Manage Screens & ViewModel). | Sergio Hernández | Completed |
+| **TSK-09** | **[UI/Logic]** Implement `FreestyleSaving` workflow (Create/Manage Screens & ViewModel). | Sergio Hernández | Completed |
+| **TSK-07** | **[UI/UX]** Integration of `cosmic_celebration_stars` for goal completion. | Sergio Hernández | Completed |
+| **TSK-10** | **[UI/UX]** Implement Glassmorphism design system specifically for iOS. | Sergio Hernández | In Progress |
+| **TSK-06** | **[QA]** Withdrawal interception tests (Insufficient funds validation). | Ricardo Hernández | Pending |
 
 ---
 
@@ -42,7 +40,7 @@ This document reflects the iterative work, role assignment, and tracking of acti
 
 | ID | Blocker Description | Owner | Status |
 | :--- | :--- | :--- | :--- |
-| **IMP-01** | Need to confirm Impeller rendering behavior with current shaders. | Sergio H. | Investigating |
+| **IMP-02** | Optimizing Glassmorphism performance on iOS (Impeller rendering checks). | Sergio H. | Investigating |
 
 ---
 
