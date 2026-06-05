@@ -74,6 +74,35 @@ v
 * **Academic Milestones:** Feature implementation schedules are bound tightly to standard project sprint deadlines.
 * **Target OS Limitations:** UI features must scale responsively down to iOS 15+ and Android 9+ target versions.
 
+### 2.4 Technological Stack
+
+This section specifies the exact technical ecosystem, software frameworks, versioned languages, development tools, and hardware environments utilized by the engineering team to construct, optimize, and validate the application.
+
+#### 2.4.1 Core Framework & Languages
+* **Cross-Platform Framework:** Flutter (v3.136.0) – Utilized as the primary open-source UI software development kit to build the natively compiled, multi-platform mobile architecture from a single codebase.
+* **Programming Language:** Dart (v3.137.20260601) – Used as the strongly typed client-optimized language for layout mechanics, type-safe data modeling, and asynchronous thread management.
+
+#### 2.4.2 Integrated Development Environments (IDEs) & Specialized Extensions
+* **Primary IDE:** Visual Studio Code (v1.123) – Utilized as the central integrated development environment for day-to-day coding, state management integration, system architecture development, and Markdown documentation maintenance.
+* **Auxiliary IDE & Compilation Suite:** Android Studio Quail 1 – Serving as a secondary environment utilized for system compilation, dependency tracking, performance profiling, and managing the Android virtual device emulator.
+* **Localization Extension:** ARB Editor (v0.2.2) – Employed within the ecosystem to systematically modify, structure, and maintain the Application Resource Bundle (`.arb`) JSON matrices across the 9 supported languages.
+* **Utility Extensions:** HTML/CSS/JavaScript Snippets (v1.0.6) – Integrated into the auxiliary tool environment to streamline formatting scripts and structure asset snippets.
+
+#### 2.4.3 Backend & Database Cloud Infrastructure
+* **Database & Authentication Engine:** Supabase – Employed as the open-source backend-as-a-service platform, hosting a relational PostgreSQL database engine. It handles cloud data hosting, handles real-time ledger sync streams, manages secure OAuth/Credential sessions, and enforces Row Level Security (RLS) to safeguard multi-tenant data boundaries.
+
+#### 2.4.4 Artificial Intelligence Tools
+* **AI Collaborator:** Google Gemini – Orchestrated throughout development as a supportive, grounded technical peer for code optimization, architectural structure debugging, parsing verification, and automated documentation design blocks.
+
+#### 2.4.5 Hardware & Deployment Testing Matrices
+
+| Component Type | Platform / Device Name | Operational Purpose / Environment Link |
+| :--- | :--- | :--- |
+| **Host Workstation (Primary)** | Windows Desktop PC | Main framework construction, local database integration, and Android module execution. |
+| **Host Workstation (Auxiliary)** | Apple MacBook | Structural compilation pipeline, code provisioning, and cross-compiling target native iOS distributions. |
+| **Virtual Simulation** | Google Pixel 7 Emulator | Continuous UI/UX layout testing, asset scaling analysis, and automated form validation audits inside Android Studio. |
+| **Physical Testing (Android)**| Oppo A17 | Real-device performance verification, touch latency monitoring, and multi-resolution rendering tests. |
+| **Physical Testing (iOS)** | Apple iPhone 17 Pro | High-fidelity hardware target testing, Glassmorphism visual rendering optimization, and native platform-specific theme validation. |
 ---
 
 ## 3. System Features and Requirements
