@@ -2,14 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-// ==========================================
-// 1. MODELO DE USUARIO
-// ==========================================
+// MODELO DE USUARIO
 class User {
   final String id;
   final String name;
   final String email;
-  final String? avatarUrl; // --- NUEVO: Soporte para foto de perfil ---
+  final String? avatarUrl;
 
   User({
     required this.id,
@@ -19,9 +17,7 @@ class User {
   });
 }
 
-// ==========================================
-// 2. ESTADO DE AUTENTICACIÓN
-// ==========================================
+// ESTADO DE AUTENTICACIÓN
 class AuthState {
   final bool isLoading;
   final User? user;
@@ -46,9 +42,7 @@ class AuthState {
   }
 }
 
-// ==========================================
-// 3. NOTIFIER (ViewModel)
-// ==========================================
+// NOTIFIER
 class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier() : super(AuthState()) {
     _check_current_session();
@@ -56,7 +50,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   final _supabase = Supabase.instance.client;
 
-  // --- ACTUALIZAR ESTADO LOCAL AL INSTANTE ---
+  // ACTUALIZAR ESTADO LOCAL
   void updateUsernameInState(String newName) {
     if (state.user != null) {
       state = state.copyWith(
@@ -70,7 +64,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // --- NUEVO: ACTUALIZAR FOTO AL INSTANTE ---
+  // ACTUALIZAR FOTO
   void updateAvatarInState(String? newAvatarUrl) {
     if (state.user != null) {
       state = state.copyWith(
@@ -84,7 +78,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // --- VERIFICAR SESIÓN (Sincronizado con DB) ---
+  // VERIFICAR SESIÓN
   Future<void> _check_current_session() async {
     final session = _supabase.auth.currentSession;
     if (session != null) {
@@ -98,7 +92,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         final profile = await _supabase
             .from('profiles')
             .select(
-                'username, avatar_url') // --- NUEVO: Pedimos el avatar_url ---
+                'username, avatar_url') // Pedimos el avatar_url
             .eq('id', userData.id)
             .single();
 
@@ -121,7 +115,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // --- INICIAR SESIÓN ---
+  // INICIAR SESIÓN
   Future<bool> login(String email, String password, String errorMsg) async {
     state = state.copyWith(isLoading: true, errorMessage: '');
     try {
@@ -135,7 +129,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
         final profile = await _supabase
             .from('profiles')
             .select(
-                'username, avatar_url') // --- NUEVO: Pedimos el avatar_url ---
+                'username, avatar_url') // Pedimos el avatar_url
             .eq('id', response.user!.id)
             .single();
 
@@ -157,7 +151,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // --- REGISTRARSE ---
+  // REGISTRARSE
   Future<bool> register(
       String username, String email, String password, String errorMsg) async {
     state = state.copyWith(isLoading: true, errorMessage: '');
@@ -183,7 +177,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  // --- INICIAR SESIÓN CON GOOGLE ---
+  // INICIAR SESIÓN CON GOOGLE
   Future<bool> login_with_google(String errorMsg) async {
     state = state.copyWith(isLoading: true, errorMessage: '');
     try {
