@@ -22,7 +22,6 @@ import '../../presentation/settings/view/edit_profile_screen.dart';
 import '../../presentation/common_widgets/universal_back_button.dart';
 import '../../presentation/savings/view/create_freestyle_saving_screen.dart';
 
-/// Provider for the app router to be used across the app.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: '/',
@@ -37,7 +36,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'splash_screen',
         builder: (context, state) => const SplashScreen(),
       ),
-      // --- SHELL ROUTE PARA EL BOTÓN DE REGRESO GLOBAL ---
+      // SHELL ROUTE PARA EL BOTÓN DE REGRESO GLOBAL
       ShellRoute(
         builder: (context, state, child) =>
             StaticBackButtonWrapper(state: state, child: child),
@@ -103,7 +102,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               // Recupera el ID enviado desde la pantalla anterior
               final goalId = state.extra as String;
 
-              // Retornamos la pantalla envuelta en tu animación de deslizamiento
+              // Retornamos la pantalla
               return _buildSlideTransition(
                 state,
                 ManageTargetSavingScreen(goalId: goalId),
@@ -131,11 +130,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
-          // Envuelve las ramas en nuestro nuevo cascarón con la toolbar estática
           return MainShellScreen(navigationShell: navigationShell);
         },
         branches: [
-          // Índice 0: Rama del Dashboard
+          // Rama del Dashboard
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -146,7 +144,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-          // Índice 1: Rama de Selección de Ahorro
+          // Rama de Selección de Ahorro
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -157,7 +155,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               ),
             ],
           ),
-          // Índice 2: Rama de Settings (Configuración)
+          // Rama de Settings
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -174,7 +172,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   );
 });
 
-// --- FUNCIÓN AUXILIAR PARA TRANSICIONES ANIMADAS ---
+// FUNCIÓN AUXILIAR PARA TRANSICIONES ANIMADAS
 CustomTransitionPage _buildSlideTransition(GoRouterState state, Widget child) {
   // Detectamos si venimos de presionar el botón de retroceso
   final isBack = state.uri.queryParameters['direction'] == 'back';
@@ -183,7 +181,7 @@ CustomTransitionPage _buildSlideTransition(GoRouterState state, Widget child) {
     key: state.pageKey,
     child: child,
     transitionDuration: const Duration(
-        milliseconds: 400), // Un poco más rápido para mayor reactividad
+        milliseconds: 400),
     reverseTransitionDuration: const Duration(milliseconds: 400),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       // Si es 'back', la pantalla entra desde la izquierda (-1.0). Si no, entra desde la derecha (1.0)
@@ -207,7 +205,7 @@ CustomTransitionPage _buildSlideTransition(GoRouterState state, Widget child) {
   );
 }
 
-// --- FUNCIÓN AUXILIAR PARA TRANSICIÓN DE ESCALA Y DESVANECIMIENTO ---
+// FUNCIÓN AUXILIAR PARA TRANSICIÓN DE ESCALA Y DESVANECIMIENTO
 CustomTransitionPage _buildFadeScaleTransition(
     GoRouterState state, Widget child) {
   return CustomTransitionPage(
@@ -234,7 +232,7 @@ CustomTransitionPage _buildFadeScaleTransition(
   );
 }
 
-// --- ENVOLTORIO GLOBAL DEL BOTÓN DE RETROCESO BLINDADO ---
+// ENVOLTORIO GLOBAL DEL BOTÓN DE RETROCESO
 class StaticBackButtonWrapper extends StatelessWidget {
   final Widget child;
   final GoRouterState state;
@@ -267,7 +265,7 @@ class StaticBackButtonWrapper extends StatelessWidget {
                     ? fromParameter
                     : '/$fromParameter';
 
-                // INYECCIÓN DE ANIMACIÓN: Acoplamos el indicador de retroceso a la URL
+                // Acoplamos el indicador de retroceso a la URL
                 final backPath = safePath.contains('?')
                     ? '$safePath&direction=back'
                     : '$safePath?direction=back';
@@ -292,7 +290,7 @@ class StaticBackButtonWrapper extends StatelessWidget {
   }
 }
 
-// --- CLASE DEL CASCARÓN PRINCIPAL CON CANDADO DE NAVEGACIÓN ---
+// CLASE DEL CASCARÓN PRINCIPAL CON CANDADO DE NAVEGACIÓN
 class MainShellScreen extends ConsumerWidget {
   final StatefulNavigationShell navigationShell;
 
