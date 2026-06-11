@@ -1,0 +1,56 @@
+name: galaxy_savings
+description: "A clean architecture personal savings application for Android and iOS."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Navigation
+  go_router: ^14.0.0
+
+  # State Management & Dependency Injection
+  flutter_riverpod: ^2.5.1
+
+  # Backend as a Service
+  supabase_flutter: ^2.5.0
+
+  # Localization
+  intl: ^0.20.2
+
+  # Local Storage (Preferences, Language state)
+  shared_preferences: ^2.5.5
+
+  # UI / UX
+  google_fonts: ^6.2.1
+  glassmorphism: ^3.0.0
+  flutter_gen: ^5.14.1
+  image_picker: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+  # Code Generation
+  build_runner: ^2.4.9
+  intl_utils: ^2.8.7
+
+flutter:
+  uses-material-design: true
+  
+  # Habilita la generación automática para l10n / i18n
+  generate: true
+
+  assets:
+    - assets/images/
+
+  shaders:
+    - assets/refraction.frag
