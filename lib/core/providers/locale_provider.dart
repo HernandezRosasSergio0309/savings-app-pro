@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// 1. Este es el Provider global que inyectaste en tu main.dart
 final shared_prefs_provider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('Se debe inicializar en el main.dart');
 });
 
-// 2. Notifier para manejar el idioma
+// Notifier para manejar el idioma
 class LocaleNotifier extends StateNotifier<Locale> {
   final SharedPreferences prefs;
 
@@ -33,7 +32,7 @@ class LocaleNotifier extends StateNotifier<Locale> {
   }
 }
 
-// 3. El Provider que usarás en tu MaterialApp y Settings
+// El Provider que usarás en tu MaterialApp y Settings
 final locale_provider = StateNotifierProvider<LocaleNotifier, Locale>((ref) {
   final prefs = ref.watch(shared_prefs_provider);
   return LocaleNotifier(prefs);
