@@ -3,7 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'auth_provider.dart';
 
-// 1. Añadimos .autoDispose para que la caché se limpie al salir de la pantalla
+// Añadimos .autoDispose para que la caché se limpie al salir de la pantalla
 final savingsProvider =
     FutureProvider.autoDispose<List<Map<String, dynamic>>>((ref) async {
   ref.watch(authProvider);
@@ -13,14 +13,14 @@ final savingsProvider =
   // Obtenemos el ID del usuario que está actualmente logueado
   final currentUser = supabase.auth.currentUser;
 
-  // Si por alguna razón no hay usuario (sesión cerrada), devolvemos lista vacía
+  // Si por alguna razón no hay usuario, devolvemos lista vacía
   if (currentUser == null) return [];
 
-  // 2. Filtramos la consulta usando el ID del usuario actual
+  // Filtramos la consulta usando el ID del usuario actual
   final response = await supabase
       .from('savings_goals')
       .select('*, goal_transactions(amount, transaction_type)')
-      .eq('user_id', currentUser.id) // <-- EL CANDADO DE SEGURIDAD
+      .eq('user_id', currentUser.id)
       .order('goal_id', ascending: true);
 
   final List<Map<String, dynamic>> formattedData = response.map((goal) {
