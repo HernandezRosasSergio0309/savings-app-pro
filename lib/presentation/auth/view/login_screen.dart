@@ -1,4 +1,3 @@
-// lib/presentation/screens/auth/login_screen.dart
 // ignore_for_file: dead_null_aware_expression
 
 import 'package:flutter/material.dart';
@@ -126,20 +125,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final l10n = AppLocalizations.of(context)!;
     final size = MediaQuery.of(context).size;
 
-    // --- CONTENIDO ESTRUCTURAL ---
+    // CONTENIDO ESTRUCTURAL
     final Widget screenContent = SingleChildScrollView(
       child: SizedBox(
         height: size.height,
         width: size.width,
         child: Stack(
           children: [
-            // 1. BOTÓN DE IDIOMA
+            // BOTÓN DE IDIOMA
             Positioned(
               top: size.height * 0.09,
               right: size.width * 0.06,
               child: _buildLanguageButton(context, isDark, size),
             ),
-            // 2. TÍTULO
+            // TÍTULO
             Positioned(
               top: size.height * 0.26,
               left: 0,
@@ -156,7 +155,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ),
             ),
-            // 3. CAMPO EMAIL
+            // CAMPO EMAIL
             Positioned(
               top: size.height * 0.49,
               left: size.width * 0.06,
@@ -169,7 +168,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 error_text: _email_error,
               ),
             ),
-            // 4. CAMPO CONTRASEÑA
+            // CAMPO CONTRASEÑA
             Positioned(
               top: size.height * 0.59,
               left: size.width * 0.06,
@@ -182,7 +181,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 error_text: _password_error,
               ),
             ),
-            // 5. LINK REGISTRO
+            // LINK REGISTRO
             Positioned(
               top: size.height * 0.68,
               left: 0,
@@ -202,7 +201,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ),
             ),
-            // 6. BOTÓN GOOGLE
+            // BOTÓN GOOGLE
             Positioned(
               top: size.height * 0.73,
               left: size.width * 0.06,
@@ -210,7 +209,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               child: Center(
                   child: _buildGoogleButton(context, isDark, size, l10n)),
             ),
-            // 7. BOTÓN LOGIN
+            // BOTÓN LOGIN
             Positioned(
               top: size.height * 0.82,
               left: size.width * 0.25,
@@ -222,7 +221,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
     );
 
-    // --- INTEGRACIÓN ADAPTATIVA ---
+    // INTEGRACIÓN ADAPTATIVA
     return PopScope(
       canPop: false,
       child: context.isApple
@@ -238,7 +237,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  // --- HELPER BUTTONS ---
+  // HELPER BUTTONS
   Widget _buildLanguageButton(BuildContext context, bool isDark, Size size) {
     return SizedBox(
       width: (size.width * 0.13).clamp(45.0, 60.0),
