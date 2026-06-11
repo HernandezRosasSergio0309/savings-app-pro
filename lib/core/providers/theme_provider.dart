@@ -9,18 +9,18 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
   // Al iniciar, cargamos el tema guardado
   ThemeNotifier(this.prefs) : super(_loadTheme(prefs));
 
-  // --- LÓGICA DE CARGA ---
+  // LÓGICA DE CARGA
   static ThemeMode _loadTheme(SharedPreferences prefs) {
     final savedTheme = prefs.getString('theme_mode');
 
     if (savedTheme == 'light') return ThemeMode.light;
     if (savedTheme == 'dark') return ThemeMode.dark;
 
-    // MAGIA: Si no hay nada guardado (primera vez), usa el modo del celular
+    // Si no hay nada guardado, usa el modo del celular
     return ThemeMode.system;
   }
 
-  // --- LÓGICA DE GUARDADO ---
+  // LÓGICA DE GUARDADO
   void toggleTheme(ThemeMode mode) {
     state = mode; // Actualizamos la pantalla
 
