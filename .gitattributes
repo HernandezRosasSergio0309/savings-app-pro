@@ -1,1 +1,3 @@
-
+*.dart linguist-language=Dart
+queries/** linguist-documentation
+docs/** linguist-documentation
